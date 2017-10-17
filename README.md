@@ -1,3 +1,5 @@
+
+
 # The Shop
 
 
@@ -6,11 +8,12 @@
 ![Desktop2](./src/screenshots/desktop_2.png)
 
 ## Tablet
-![Tablet1](./src/screenshots/tablet_1.jpg)
-![Tablet1](./src/screenshots/tablet_2.jpg)
+<img src="./src/screenshots/tablet_1.jpg" width="500">
+<img src="./src/screenshots/tablet_2.jpg" width="500">
 
 ## Phone
-![Phone1](./src/screenshots/phone_1.jpg)
-![Phone2](./src/screenshots/phone_2.jpg)
-![Phone3](./src/screenshots/phone_3.jpg)
-![Phone4](./src/screenshots/phone_4.jpg)
+<img src="./src/screenshots/phone_1.jpg" width="300">
+<img src="./src/screenshots/phone_2.jpg" width="300">
+<img src="./src/screenshots/phone_3.jpg" width="300">
+<img src="./src/screenshots/phone_4.jpg" width="300">
+
