@@ -1,7 +1,11 @@
-# Простая сборка
-Код писать нужно только в файлах из папки `src`. В нее же нужно сохранять картинки.
+# The Shop
 
-Папка `dist` генерируется автоматически, она добавлена в `.gitignore`, руками в ней ничего делать нельзя.
+
+## Desktop
+![](./src/screenshots/desktop_1.png =1080x720)
+![](./src/screenshots/desktop_2.png =1080x720)
+![](./src/screenshots/desktop_3.png =1080x720)
+![](./src/screenshots/desktop_4.png =1080x720)
 
 ## Запуск
 ```bash
