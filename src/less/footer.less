@@ -21,6 +21,10 @@
         padding: @pagePaddingRL 0;
 
         @media @tablet {
+            .flexRow;
+        }
+
+        @media @tablet {
             padding: @pagePaddingRL / 3.5 0;
         }
     }
@@ -30,7 +34,37 @@
     font-size: 12px;
     line-height: 1.7;
 
+    @media @phone-strict {
+        padding-bottom: @pagePaddingRL;
+    }
+
     @media @tablet {
         font-size: 14px;
+    }
+}
+
+.continuous-integration {
+    margin-left: auto;
+    align-self: center;
+    .flexRow;
+
+    @media @phone-strict {
+        padding-top: @pagePaddingRL;
+        border-top: thin solid darken(@backGroundColor, 15%);
+    }
+
+    &__icon {
+
+        width: 40px;
+        margin-right: 3%;
+    }
+
+    &__text {
+        font-style: italic;
+        font-size: 12px;
+
+        @media @tablet {
+            font-size: 14px;
+        }
     }
 }
