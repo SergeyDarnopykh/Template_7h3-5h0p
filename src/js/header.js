@@ -7,11 +7,11 @@ if (screen.width < 768) {
         header = document.querySelector('#header'),
         headerBottom = document.querySelector('#headerBottom'),
         content = document.querySelector('#content'),
-        breadcrums = document.querySelector('#breadcrums');
+        breadcrumbs = document.querySelector('#breadcrumbs');
 
     shopPhoneNumber.remove();
     search.remove();
-    content.insertBefore(search, breadcrums);
+    content.insertBefore(search, breadcrumbs);
 
     shopLogo.remove();
     shopInfo.insertBefore(shopLogo, shopLink);
