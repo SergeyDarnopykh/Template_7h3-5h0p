@@ -3,16 +3,20 @@ const less = require('gulp-less');
 const browserSync = require('browser-sync');
 const autoprefixer = require('gulp-autoprefixer');
 
-browserSync.create();
 
-browserSync.init({
-    server: {
-        baseDir: 'dist'
-    },
-    files: [
-        'dist/**/*.*'
-    ]
+gulp.task('browserSync', () => {
+    browserSync.create();
+
+    browserSync.init({
+        server: {
+            baseDir: 'dist'
+        },
+        files: [
+            'dist/**/*.*'
+        ]
+    });
 });
+
 
 gulp.task('styles', () => {
     gulp.src('src/less/**/*.less')
@@ -36,9 +40,15 @@ gulp.task('html', () => {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.watch('src/less/**/*.less', ['styles']);
-gulp.watch('src/**/*.html', ['html']);
-gulp.watch('src/img/**/*.*', ['img']);
-gulp.watch('src/js/**/*.*', ['js']);
+gulp.task('watch', () => {
+    gulp.watch('src/less/**/*.less', ['styles']);
+    gulp.watch('src/**/*.html', ['html']);
+    gulp.watch('src/img/**/*.*', ['img']);
+    gulp.watch('src/js/**/*.*', ['js']);
+});
 
-gulp.task('default', ['styles', 'html', 'img', 'js']);
+
+
+gulp.task('default', ['styles', 'html', 'img', 'js', 'watch', 'browserSync']);
+gulp.task('prod', ['styles', 'html', 'img', 'js']);
+
