@@ -1,0 +1,36 @@
+@import 'media';
+@import 'decor';
+
+.footer {
+    background: @backGroundColor;
+    padding: (@pagePaddingRL + 1) / 2 @pagePaddingRL;
+    font-family: @fontRoboto;
+
+    &__top {
+        .flexColumn;
+        padding-bottom: @pagePaddingRL - 2;
+        border-bottom: thin solid darken(@backGroundColor, 15%);
+
+        @media @tablet {
+            .flexRow;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__bottom {
+        padding: @pagePaddingRL 0;
+
+        @media @tablet {
+            padding: @pagePaddingRL / 3.5 0;
+        }
+    }
+}
+
+.copyright {
+    font-size: 12px;
+    line-height: 1.7;
+
+    @media @tablet {
+        font-size: 14px;
+    }
+}

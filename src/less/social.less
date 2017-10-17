@@ -1,0 +1,48 @@
+ @import 'media';
+ @import 'decor';
+
+ .social-media {
+     .flexRow;
+     margin: auto;
+     margin-top: 10px;
+
+     @media @tablet-strict {
+         padding-top: 45px;
+         margin: auto;
+     }
+
+     @media @desktop {
+         margin: 0;
+         align-self: flex-start;
+         .flexColumn;
+         margin-left: auto;
+     }
+
+     &__facebook {
+         width: 20px;
+         height: 30px;
+         margin: 10px;
+
+         @media @desktop {
+             margin: 4px auto;
+         }
+     }
+
+     &__twitter {
+         width: 30px;
+         margin: 10px;
+
+         @media @desktop {
+             margin: 12px 0 10px 0;
+         }
+     }
+
+     &__instagram {
+         width: 30px;
+         margin: 10px;
+
+         @media @tablet {
+             margin: 5px 0;
+         }
+     }
+ }

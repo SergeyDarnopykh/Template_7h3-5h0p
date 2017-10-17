@@ -6,20 +6,232 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/breadcrums.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/service-support-about.css">
+    <link rel="stylesheet" href="css/benefits.css">
+    <link rel="stylesheet" href="css/social.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body>
+<body class="page">
 
-<!-- Код для примера -->
-<header class="header">
-    <h1>Hello world</h1>
+<header id="header" class="header">
+    <div id="headerTop" class="header__top">
+        <div class="shop">
+            <div id="shopInfo" class="shop__info">
+                <a href="#" id="shopLink" class="shop__link">
+                    <img class="shop__name" src="img/the_shop_logo.svg">
+                </a>
+                <img id='shopLogo' class="shop__logo" src="img/oggetto_logo.svg">
+                <span id="shopPhoneNumber" class="shop__phone-number">+7&nbsp(812)&nbsp2&bullet;12&bullet;85&bullet;06</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="headerBottom" class="header__bottom">
+        <div id="navigation" class="navigation">
+            <ul id="navigationList" class="navigation__list">
+                <li class="navigation__item navigation__item_active">LISP</li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">OCaml</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">JavaScript</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">Python</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">PHP</a>
+                </li>
+            </ul>
+            <label id="search" class="search navigation__search">
+                <img class="search__icon" src="img/search.svg">
+                <input class="search__field" type="text">
+            </label>
+        </div>
+    </div>
 </header>
 
-<img src="img/pic.png" alt="">
+<div id="content" class="content">
+    <div id="breadcrums" class="breadcrums">
+        <ul class="breadcrums__list">
+            <li class="breadcrums__item">
+                <a href="#" class="breadcrums__link">LISP</a>&nbsp/&nbsp
+            </li>
+            <li class="breadcrums__item">
+                <a href="#" class="breadcrums__link">Одежда</a>&nbsp/&nbsp
+            </li>
+            <li class="breadcrums__item breadcrums__item_active">Футболки</li>
+        </ul>
+    </div>
+
+    <div id="product" class="product">
+        <img class="product__img" id="productImg" src="img/tshirt_white.jpg">
+
+        <div id="productInfo" class="product__info">
+            <span class="product__name">Футболка Alien technology</span>
+            <p class="product__manufacture">Состав: 100% хлопок, динамическая типизация, польская нотация.
+            Производство: Россия.</p>
+            <span id="productCost" class="product__cost">1500&#8381;</span>
+
+            <div id="productSizeColor" class="product__size-color">
+                <div id="productSize" class="size product__size">
+                    <span class="size__title">Размер:</span>
+                    <div class="size-buttons">
+                        <button type="button" id="sizeButtonSmall" class="size-buttons_small">S</button>
+                        <button type="button" id="sizeButtonMedium" class="size-buttons_medium">M</button>
+                        <button type="button" id="sizeButtonLarge" class="size-buttons_large">L</button>
+                    </div>
+                </div>
+                <div id="productColor" class="color product__color">
+                    <span class="color__title">Цвет:</span>
+                    <div class="color-buttons">
+                        <button type="button" id="colorButtonWhite" class="color-buttons_white"></button>
+                        <button type="button" id="colorButtonYellow" class="color-buttons_yellow"></button>
+                        <button type="button" id="colorButtonGreen" class="color-buttons_green"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="productBuy" class="buy product__buy">
+                <div class="buy__now">
+                    <button type="button" class="buy-button">
+                        <a href="#" class="buy-button__link">Купить</a>
+                    </button>
+                </div>
+                <div class="buy__later">
+                    <img class="buy__later_heart" src="img/heart.png">
+                    <a href='#' class="buy__link">Отложить на потом</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer class="footer">
+
+    <div class="footer__top">
+        <div class="service-support">
+            <span id="serviceSupportTitle" class="service-support__title">Сервис и поддержка</span>
+            <div id="serviceSupport" class="service-support__container">
+                <div class="order">
+                    <ul class="order__list">
+                        <li class="order__item">
+                            <a href="#" class="order__link">Как сделать заказ</a>
+                        </li>
+                        <li class="order__item">
+                            <a href="#" class="order__link">Возврат товара</a>
+                        </li>
+                        <li class="order__item">
+                            <a href="#" class="order__link">Публичная оферта</a>
+                        </li>
+                        <li class="order__item">
+                            <a href="#" class="order__link">Доставка</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="payment">
+                    <ul class="payment__list">
+                        <li class="payment__item">
+                            <a href="#" class="order__link">Способы оплаты</a>
+                        </li>
+                        <li class="payment__item">
+                            <a href="#" class="order__link">Правила продажи</a>
+                        </li>
+                        <li class="payment__item">
+                            <a href="#" class="order__link">Возврат денежных средств</a>
+                        </li>
+                        <li class="payment__item">
+                            <a href="#" class="order__link">Вопросы и ответы</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="about">
+            <span id="aboutTitle" class="about__title">О компании</span>
+            <div id="about" class="about__container">
+                <div class="company">
+                    <ul class="company__list">
+                        <li class="company__item">
+                            <a href="#" class="company__link">О нас</a>
+                        </li>
+                        <li class="company__item">
+                            <a href="#" class="company__link">Контакты</a>
+                        </li>
+                        <li class="company__item">
+                            <a href="#" class="company__link">Вакансии</a>
+                        </li>
+                        <li class="company__item">
+                            <a href="#" class="company__link">Партнерам</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="why-us">
+                    <ul class="why-us__list">
+                        <li class="why-us__item">
+                            <a href="#" class="why-us__link">Сертификаты</a>
+                        </li>
+                        <li class="why-us__item">
+                            <a href="#" class="why-us__link">Преимущества</a>
+                        </li>
+                        <li class="why-us__item">
+                            <a href="#" class="why-us__link">Скидки</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="benefits">
+            <div class="icons benefits__icons">
+                <img class="icons__free-shipping" src="img/delivery.svg">
+                <img class="icons__samples" src="img/samples.svg">
+                <img class="icons__gifts" src="img/cup.svg">
+            </div>
+
+            <ul class="benefits__list">
+                <li class="benefits__free-shipping">бесплатная доставка от 4000&nbsp&#8381;</li>
+                <li class="benefits__samples">пробники в подарок при каждой покупке</li>
+                <li class="benefits__gifts">акции и подарки за покупку</li>
+            </ul>
+        </div>
+
+        <div class="social-media">
+            <a href="#" class="social-media__link">
+                <img class="social-media__facebook" src="img/facebook.svg">
+            </a>
+            <a href="#" class="social-media__link">
+                <img class="social-media__twitter" src="img/twitter.svg">
+            </a>
+            <a href="#" class="social-media__link">
+                <img class="social-media__instagram" src="img/instagram.svg">
+            </a>
+
+
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="copyright">
+            2005-2017 &copy; 7h350p.ru - модный интернет-магазин одежды, обуви и аксессуаров. <br>
+            Все права защищены. Доставка по всей России!
+        </p>
+    </div>
 </footer>
 
-<script src="js/scripts.js"></script>
+<script src="js/buttons.js"></script>
+<script src="js/header.js"></script>
+<script src="js/product.js"></script>
+<script src="js/footer.js"></script>
 </body>
 </html>

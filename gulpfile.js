@@ -15,7 +15,7 @@ browserSync.init({
 });
 
 gulp.task('styles', () => {
-    gulp.src('src/less/main.less')
+    gulp.src('src/less/**/*.less')
         .pipe(less())
         .pipe(autoprefixer())
         .pipe(gulp.dest('./dist/css'));

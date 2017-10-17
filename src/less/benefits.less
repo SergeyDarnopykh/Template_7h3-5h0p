@@ -1,0 +1,63 @@
+@import 'media';
+@import 'decor';
+
+.benefits {
+    @media @phone-strict {
+        margin-top: 10%;
+        margin-left: auto;
+    }
+
+    @media @tablet-strict {
+        margin-top: 5%;
+    }
+
+    font-size: 14px;
+
+    .flexRow;
+    align-self: flex-start;
+
+    &__free-shipping {
+        margin: 13px 0 23px 0;
+
+        @media @tablet {
+            margin: @pagePaddingRL 0 @pagePaddingRL * 1.8 0;
+        }
+    }
+
+    &__samples {
+        margin: @pagePaddingRL 0 @pagePaddingRL + 2  0;
+
+        @media @tablet {
+            width: 110%;
+            margin: @pagePaddingRL 0 @pagePaddingRL * 2  0;
+        }
+    }
+
+    &__list {
+        margin-bottom: auto;
+    }
+}
+
+.icons {
+    width: 25px;
+    padding-right: 12%;
+
+    &__free-shipping {
+        width: 50px;
+        margin: 7px 0;
+    }
+
+    &__samples {
+        width: 25px;
+        margin: 10px 0;
+        padding-left: 25px;
+    }
+
+    &__gifts {
+        margin: 7px 0;
+        width: 20px;
+        padding-left: 30px;
+    }
+}
+
+
