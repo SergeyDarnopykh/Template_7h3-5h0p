@@ -1,0 +1,6 @@
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: 7h3_5h0p # Set in travis-ci.org dashboard
+  on:
+    branch: master
