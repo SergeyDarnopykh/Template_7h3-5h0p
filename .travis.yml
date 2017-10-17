@@ -8,5 +8,5 @@ deploy:
   skip_cleanup: true # Не чистим рабочую директорию
   # GITHUB_TOKEN — код, обеспечивающий интеграцию Тревиса и Гитхаба.
   # Нужно сгенерировать тут: https://github.com/settings/tokens и добавить в настройки репозитория в Тревисе
-  github_token: "7h3_5h0p"
+  github_token: $The_shop
   local_dir: dist # название директории, из которой будут отдаваться файлы на сервере
