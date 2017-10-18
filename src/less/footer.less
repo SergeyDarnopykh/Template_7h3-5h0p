@@ -1,6 +1,8 @@
 @import 'media';
 @import 'decor';
 
+@border: thin solid darken(@backGroundColor, 15%);
+
 .footer {
     background: @backGroundColor;
     padding: (@pagePaddingRL + 1) / 2 @pagePaddingRL;
@@ -9,7 +11,7 @@
     &__top {
         .flexColumn;
         padding-bottom: @pagePaddingRL - 2;
-        border-bottom: thin solid darken(@backGroundColor, 15%);
+        border-bottom: @border;
 
         @media @tablet {
             .flexRow;
@@ -19,6 +21,7 @@
 
     &__bottom {
         padding: @pagePaddingRL 0;
+        .flexColumn;
 
         @media @tablet {
             .flexRow;
@@ -32,7 +35,12 @@
     line-height: 1.7;
 
     @media @phone-strict {
+        border-bottom: @border;
         padding-bottom: @pagePaddingRL;
+    }
+
+    @media @tablet-strict {
+        padding-right: 7%;
     }
 
     @media @tablet {
@@ -47,19 +55,20 @@
 
     @media @phone-strict {
         padding-top: @pagePaddingRL;
-        border-top: thin solid darken(@backGroundColor, 15%);
+        margin: 0 auto;
     }
 
     &__icon {
         width: 40px;
+        margin-right: 10px;
     }
 
     &__text {
         font-style: italic;
         font-size: 12px;
-        margin-left: 3%;
 
         @media @tablet {
+            padding-right: 1%;
             font-size: 14px;
         }
     }

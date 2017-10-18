@@ -11,25 +11,22 @@ colorButtons.push(document.querySelector('#colorButtonYellow'));
 colorButtons.push(document.querySelector('#colorButtonGreen'));
 
 function resetButtonsStyles(type) {
-    const passiveBorderStyle = 'thin solid black';
-
     if (type === 'size') {
         for (let i = 0; i < sizeButtons.length; i++) {
-            sizeButtons[i].style.border = passiveBorderStyle;
+            sizeButtons[i].classList.remove('size-buttons_active');
         }
     } else {
         for (let i = 0; i < colorButtons.length; i++) {
-            colorButtons[i].style.border = passiveBorderStyle;
+            colorButtons[i].classList.remove('color-buttons_active');
         }
     }
 }
 
 function activateButton (buttonNumber, type) {
-    const activeButtonStyle = '2px solid #cc0000';
     resetButtonsStyles(type);
 
     if (type === 'size') {
-        sizeButtons[buttonNumber].style.border = activeButtonStyle;
+        sizeButtons[buttonNumber].className += ' size-buttons_active';
     } else {
         let newImageSrc;
 
@@ -46,7 +43,7 @@ function activateButton (buttonNumber, type) {
         }
 
         productImg.src = newImageSrc;
-        colorButtons[buttonNumber].style.border = activeButtonStyle;
+        colorButtons[buttonNumber].className += ' color-buttons_active';
     }
 }
 

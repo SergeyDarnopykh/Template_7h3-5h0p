@@ -2,6 +2,9 @@
 @import 'decor';
 
 .benefits {
+    .flexRow;
+    align-self: flex-start;
+
     @media @phone-strict {
         margin: auto;
         margin-top: 10%;
@@ -11,59 +14,47 @@
         margin-top: 5%;
     }
 
-    font-size: 14px;
-
-    .flexRow;
-    align-self: flex-start;
-
     &__free-shipping {
-        margin: 13px 0 23px 0;
-
-        @media @tablet {
-            margin: @pagePaddingRL 0 @pagePaddingRL * 1.8 0;
-        }
+        margin-top: 5px;
     }
 
     &__samples {
-        margin: @pagePaddingRL 0 @pagePaddingRL + 2  0;
-
+        margin-top: 28px;
         @media @tablet {
-            width: 110%;
-            margin: @pagePaddingRL 0 @pagePaddingRL * 2  0;
+            //width: 110%;
+            //margin: @pagePaddingRL 0 @pagePaddingRL * 2  0;
         }
     }
 
+    &__gifts {
+        margin-top: 26px;
+    }
+
     &__list {
+        font-size: 14px;
         margin-bottom: auto;
     }
 }
 
 .icons {
-    width: 25px;
+    .flexColumn;
+    margin-right: 4%;
 
     &__free-shipping {
         width: 50px;
-        margin: 7px 0;
     }
 
     &__samples {
         width: 25px;
-        margin: 10px 0;
+        margin-top: 25px;
         padding-left: 25px;
     }
 
     &__gifts {
-        margin: 5px 0;
-
-        @media @tablet {
-            margin: 7px 0;
-        }
-
         width: 20px;
         padding-left: 30px;
+        margin-top: 25px;
     }
-
-    padding-right: 12%;
 }
 
 
