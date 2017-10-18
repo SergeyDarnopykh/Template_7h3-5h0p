@@ -3,8 +3,8 @@
 
 .benefits {
     @media @phone-strict {
+        margin: auto;
         margin-top: 10%;
-        margin-left: auto;
     }
 
     @media @tablet-strict {
@@ -54,7 +54,12 @@
     }
 
     &__gifts {
-        margin: 7px 0;
+        margin: 5px 0;
+
+        @media @tablet {
+            margin: 7px 0;
+        }
+
         width: 20px;
         padding-left: 30px;
     }
