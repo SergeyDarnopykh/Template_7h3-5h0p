@@ -7,7 +7,7 @@ function changeVisibility(elem) {
     }
 }
 
-if (screen.width < 768) {
+if (window.innerWidth < 768) {
     const serviceSupport = document.querySelector('#serviceSupport'),
         serviceSupportTitle = document.querySelector('#serviceSupportTitle'),
         about = document.querySelector('#about'),

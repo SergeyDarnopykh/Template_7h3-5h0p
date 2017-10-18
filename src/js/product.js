@@ -1,4 +1,4 @@
-if (screen.width < 768) {
+if (window.innerWidth < 768) {
     const productInfo = document.querySelector('#productInfo'),
         productSizeColor = productInfo.querySelector('#productSizeColor'),
         productCost = productInfo.querySelector('#productCost');

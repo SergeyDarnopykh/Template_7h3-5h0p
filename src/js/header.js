@@ -1,4 +1,4 @@
-if (screen.width < 768) {
+if (window.innerWidth < 768) {
     const shopInfo = document.querySelector('#shopInfo'),
         shopLogo = shopInfo.querySelector('#shopLogo'),
         shopLink = shopInfo.querySelector('#shopLink'),
