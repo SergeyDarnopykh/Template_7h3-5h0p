@@ -12,7 +12,7 @@
      @media @desktop {
          align-self: flex-start;
          .flexColumn;
-         margin: 0 0 0 auto;
+         margin: 1px 0 0 auto;
      }
 
      &__facebook {
@@ -26,19 +26,24 @@
      }
 
      &__twitter {
-         width: 30px;
+         width: 33px;
          margin: 10px;
 
+         @media @tablet {
+             width: 30px;
+         }
+
          @media @desktop {
-             margin: 12px 0 10px 0;
+             margin: 15px 0 13px 0;
          }
      }
 
      &__instagram {
-         width: 30px;
+         width: 33px;
          margin: 10px;
 
          @media @tablet {
+             width: 30px;
              margin: 5px 0;
          }
      }
