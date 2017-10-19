@@ -4,8 +4,6 @@ if (window.innerWidth < 768) {
         shopLink = shopInfo.querySelector('#shopLink'),
         shopPhoneNumber = shopInfo.querySelector('#shopPhoneNumber'),
         search = document.querySelector('#search'),
-        header = document.querySelector('#header'),
-        headerBottom = document.querySelector('#headerBottom'),
         content = document.querySelector('#content'),
         breadcrumbs = document.querySelector('#breadcrumbs');
 

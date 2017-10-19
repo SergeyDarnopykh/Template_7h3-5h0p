@@ -1,9 +1,8 @@
 function changeVisibility(elem) {
-    if (elem.style.display === 'flex') {
-        elem.style.display = 'none';
+    if (elem.className.includes('hidden')) {
+        elem.classList.remove('hidden');
     } else {
-        elem.style.display = 'flex';
-        elem.style.flexDirection = 'row';
+        elem.className += ' hidden';
     }
 }
 
@@ -12,6 +11,9 @@ if (window.innerWidth < 768) {
         serviceSupportTitle = document.querySelector('#serviceSupportTitle'),
         about = document.querySelector('#about'),
         aboutTitle = document.querySelector('#aboutTitle');
+
+    serviceSupport.className += ' hidden';
+    about.className += ' hidden';
 
     serviceSupportTitle.onclick = function () {
         changeVisibility(serviceSupport);
