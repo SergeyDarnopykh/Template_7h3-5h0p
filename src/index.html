@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/service-support-about.css">
-    <link rel="stylesheet" href="css/benefits.css">
+    <link rel="stylesheet" href="css/advantages.css">
     <link rel="stylesheet" href="css/social.css">
     <link rel="stylesheet" href="css/page.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -87,14 +87,16 @@
                     <span class="size__title">Размер:</span>
                     <div class="size-buttons">
                         <button type="button" id="sizeButtonSmall" class="size-buttons_small">S</button>
-                        <button type="button" id="sizeButtonMedium" class="size-buttons_medium size-buttons_active">M</button>
+                        <button type="button" id="sizeButtonMedium"
+                                class="size-buttons_medium size-buttons_active">M</button>
                         <button type="button" id="sizeButtonLarge" class="size-buttons_large">L</button>
                     </div>
                 </div>
                 <div id="productColor" class="color product__color">
                     <span class="color__title">Цвет:</span>
                     <div class="color-buttons">
-                        <button type="button" id="colorButtonWhite" class="color-buttons_white color-buttons_active"></button>
+                        <button type="button" id="colorButtonWhite"
+                                class="color-buttons_white color-buttons_active"></button>
                         <button type="button" id="colorButtonYellow" class="color-buttons_yellow"></button>
                         <button type="button" id="colorButtonGreen" class="color-buttons_green"></button>
                     </div>
@@ -117,7 +119,6 @@
 </div>
 
 <footer class="footer">
-
     <div class="footer__top">
         <div class="service-support">
             <span id="serviceSupportTitle" class="service-support__title">Сервис и поддержка</span>
@@ -192,19 +193,20 @@
             </div>
         </div>
 
-        <div class="benefits">
-            <div class="icons benefits__icons">
-                <img class="icons__free-shipping" src="img/delivery.svg">
-                <img class="icons__samples" src="img/samples.svg">
-                <img class="icons__gifts" src="img/cup.svg">
-            </div>
-
-            <ul class="benefits__list">
-                <li class="benefits__free-shipping">бесплатная доставка от 4000&nbsp&#8381;</li>
-                <li class="benefits__samples">пробники в подарок при каждой покупке</li>
-                <li class="benefits__gifts">акции и подарки за покупку</li>
-            </ul>
-        </div>
+        <ul class="advantages">
+            <li class="advantages__item">
+                <img src="img/delivery.svg" class="advantages__icon advantages__icon_delivery">
+                <span class="advantages__text">бесплатная доставка от 4000&nbsp&#8381;</span>
+            </li>
+            <li class="advantages__item">
+                <img src="img/samples.svg" class="advantages__icon advantages__icon_samples">
+                <span class="advantages__text">пробники в подарок при каждой покупке</span>
+            </li>
+            <li class="advantages__item advantages__gifts">
+                <img src="img/cup.svg" class="advantages__icon advantages__icon_gifts">
+                <span class="advantages__text">акции и подарки за покупку</span>
+            </li>
+        </ul>
 
         <div class="social-media">
             <a href="#" class="social-media__link">
