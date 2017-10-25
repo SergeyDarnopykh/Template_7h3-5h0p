@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7h350p</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body class="page">
+
+<header id="header" class="header">
+    <div id="headerTop" class="header__top">
+        <div class="shop">
+            <div id="shopInfo" class="shop__info">
+                <a href="#" id="shopLink" class="shop__link">
+                    <img class="shop__name" src="img/the_shop_logo.svg">
+                </a>
+                <img id='shopLogo' class="shop__logo" src="img/oggetto_logo.svg">
+                <span id="shopPhoneNumber"
+                      class="shop__phone-number">+7&nbsp(812)&nbsp2&bullet;12&bullet;85&bullet;06</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="headerBottom" class="header__bottom">
+        <div id="navigation" class="navigation">
+            <ul id="navigationList" class="navigation__list">
+                <% const navigationItems = [
+                    {title: 'LISP', link: '#'},
+                    {title: 'OCaml', link: '#'},
+                    {title: 'JavaScript', link: '#'},
+                    {title: 'Python', link: '#'},
+                    {title: 'PHP', link: '#'}
+                ] %>
+
+                <% navigationItems.forEach( item => { %>
+                <li class="navigation__item<%= item.title === 'LISP' ? ' navigation__item_active' : '' %>">
+                    <% if (item.title !== 'LISP') { %>
+                    <a href="<% item.link %>" class="navigation__link"> <%= item.title %></a>
+                    <% } else { %>
+                    <%= item.title %>
+                    <% } %>
+                </li>
+                <% }); %>
+            </ul>
+            <label id="search" class="search navigation__search">
+                <img class="search__icon" src="img/search.svg">
+                <input class="search__field" type="text">
+            </label>
+        </div>
+    </div>
+</header>
+
+<div id="content" class="content">
+    <div id="breadcrumbs" class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+            <% const breadcrumbsItems = [
+                {title: 'LISP', link: '#'},
+                {title: 'Одежда', link: '#'},
+                {title: 'Футболки', link: '#'}
+            ] %>
+
+            <% breadcrumbsItems.forEach( item => { %>
+            <li class="breadcrumbs__item<%= item.title === 'Футболки' ? ' breadcrumbs__item_active' : '' %>">
+                <% if (item.title !== 'Футболки') { %>
+                <a href="<% item.link %>" class="breadcrumbs__link"> <%= item.title %></a>&nbsp;/&nbsp;
+                <% } else { %>
+                <%= item.title %>
+                <% } %>
+            </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <div id="product" class="product">
+        <img class="product__img" id="productImg" src="img/tshirt_white.jpg">
+
+        <div id="productInfo" class="product__info">
+            <span class="product__name">Футболка Alien technology</span>
+            <p class="product__manufacture">Состав: 100% хлопок, динамическая типизация, польская нотация.
+                Производство: Россия.</p>
+            <span id="productCost" class="product__cost">1500&#8381;</span>
+
+            <div id="productSizeColor" class="product__size-color">
+                <div id="productSize" class="size product__size">
+                    <span class="size__title">Размер:</span>
+
+                    <div class="size-buttons">
+                        <% const sizeButtonsItems = [
+                            {size: 'Small', title: 'S'},
+                            {size: 'Medium', title: 'M'},
+                            {size: 'Large', title: 'L'}
+                        ] %>
+
+                        <% sizeButtonsItems.forEach( item => { %>
+                        <button type="button" id="sizeButton<%= item.size %>"
+                                class="size-buttons_<%= item.size.toLowerCase() +
+                                (item.size === 'Medium' ? ' size-buttons_active' : '') %>">
+                            <%= item.title %>
+                        </button>
+                        <% }); %>
+                    </div>
+                </div>
+                <div id="productColor" class="color product__color">
+                    <span class="color__title">Цвет:</span>
+                    <div class="color-buttons">
+                        <% const colorButtonsItems = [
+                            {color: 'White'},
+                            {color: 'Yellow'},
+                            {color: 'Green'}
+                        ] %>
+
+                        <% colorButtonsItems.forEach( item => { %>
+                        <button type="button" id="colorButton<%= item.color %>"
+                                class="color-buttons_<%= item.color.toLowerCase() +
+                                (item.color === 'White' ? ' color-buttons_active' : '') %>">
+                            <%= item.title %>
+                        </button>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+
+            <div id="productBuy" class="buy product__buy">
+                <div class="buy__now">
+                    <button type="button" class="buy-button">
+                        <a href="#" class="buy-button__link">Купить</a>
+                    </button>
+                </div>
+                <div class="buy__later">
+                    <img class="buy__later_heart" src="img/heart.png">
+                    <a href='#' class="buy__link">Отложить на потом</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer__top">
+        <div class="service-support">
+            <span id="serviceSupportTitle" class="service-support__title">Сервис и поддержка</span>
+            <div id="serviceSupport" class="service-support__container">
+                <div class="order">
+                    <ul class="order__list">
+                        <% const orderItems = [
+                            {title: 'Как сделать заказ', link: '#'},
+                            {title: 'Возврат товара', link: '#'},
+                            {title: 'Публичная оферта', link: '#'},
+                            {title: 'Доставка', link: '#'}
+                        ] %>
+
+                        <% orderItems.forEach( item => { %>
+                        <li class="order__item">
+                            <a href="<%= item.link %>" class="order__link"><%= item.title %></a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <div class="payment">
+                    <ul class="payment__list">
+                        <% const paymentItems = [
+                            {title: 'Способы оплаты', link: '#'},
+                            {title: 'Правила продажи', link: '#'},
+                            {title: 'Возврат денежных средств', link: '#'},
+                            {title: 'Вопросы и ответы', link: '#'}
+                        ] %>
+
+                        <% paymentItems.forEach( item => { %>
+                        <li class="payment__item">
+                            <a href="<%= item.link %>" class="payment__link"><%= item.title %></a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="about">
+            <span id="aboutTitle" class="about__title">О компании</span>
+            <div id="about" class="about__container">
+                <div class="company">
+                    <ul class="company__list">
+                        <% const companyItems = [
+                            {title: 'О нас', link: '#'},
+                            {title: 'Контакты', link: '#'},
+                            {title: 'Вакансии', link: '#'},
+                            {title: 'Партнерам', link: '#'}
+                        ] %>
+
+                        <% companyItems.forEach( item => { %>
+                        <li class="company__item">
+                            <a href="<%= item.link %>" class="company__link"><%= item.title %></a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <div class="why-us">
+                    <ul class="why-us__list">
+                        <% const whyUsItems = [
+                            {title: 'Сертификаты', link: '#'},
+                            {title: 'Преимущества', link: '#'},
+                            {title: 'Скидки', link: '#'}
+                        ] %>
+
+                        <% whyUsItems.forEach( item => { %>
+                        <li class="why-us__item">
+                            <a href="<%= item.link %>" class="why-us__link"><%= item.title %></a>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <ul class="advantages">
+            <% const advantagesItems = [
+                {title: 'delivery', icon: 'img/delivery.svg', text: 'бесплатная доставка от 4000 ₽'},
+                {title: 'samples', icon: 'img/samples.svg', text: 'пробники в подарок при каждой покупке'},
+                {title: 'gifts', icon: 'img/cup.svg', text: 'акции и подарки за покупку'}
+            ]; %>
+
+            <% advantagesItems.forEach(item => { %>
+            <li class="advantages__item">
+                <img src="<%= item.icon %>" class="advantages__icon advantages__icon_<%= item.title %>">
+                <span class="advantages__text"><%= item.text %></span>
+            </li>
+            <% }); %>
+        </ul>
+
+        <div class="social-media">
+            <% const socialMediaItems = [
+                {title: 'facebook', icon: 'img/facebook.svg', link: '#'},
+                {title: 'twitter', icon: 'img/twitter.svg', link: '#'},
+                {title: 'instagram', icon: 'img/instagram.svg', link: '#'}
+            ]; %>
+
+            <% socialMediaItems.forEach(item => { %>
+            <a href="<%= item.link %>" class="social-media__link">
+                <img class="social-media__<%= item.title %>" src="<%= item.icon %>">
+            </a>
+            <% }); %>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <p class="copyright">
+            2005-2017 &copy; 7h350p.ru - модный интернет-магазин одежды, обуви и аксессуаров. <br>
+            Все права защищены. Доставка по всей России!
+        </p>
+        <div class="continuous-integration">
+            <a href="https://travis-ci.org/" class="continuous-integration__link">
+                <img class="continuous-integration__icon" src="img/TravisCI.png">
+            </a>
+            <p class="continuous-integration__text">
+                This page uses Travis for continuous integration.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/all.js"></script>
+</body>
+</html>

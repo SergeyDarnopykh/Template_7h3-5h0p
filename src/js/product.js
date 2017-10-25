@@ -3,6 +3,6 @@ if (window.innerWidth < 768) {
         productSizeColor = productInfo.querySelector('#productSizeColor'),
         productCost = productInfo.querySelector('#productCost');
 
-        productSizeColor.remove();
-        productInfo.insertBefore(productSizeColor, productCost);
+    productSizeColor.remove();
+    productInfo.insertBefore(productSizeColor, productCost);
 }
