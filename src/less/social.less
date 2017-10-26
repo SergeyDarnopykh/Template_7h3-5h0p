@@ -1,41 +1,40 @@
- @import 'media';
- @import 'decor';
+@import 'decor';
 
- .social-media {
-     .flexRow;
-     margin: 20px auto auto auto;
+.social-media {
+    .flexRow;
+    margin: 20px auto auto;
 
-     @media @tablet-strict {
-         margin: 5% 105px 0 auto;
-     }
+    @media @tablet-strict {
+        margin: 5% 105px 0 auto;
+    }
 
-     @media @desktop {
-         align-self: flex-start;
-         .flexColumn;
-         margin: 1px 0 0 auto;
-     }
+    @media @desktop {
+        align-self: flex-start;
+        .flexColumn;
+        margin: 1px 0 0 auto;
+    }
 
-     &__facebook {
-         width: 20px;
-         height: 30px;
-         margin: 10px;
+    &__facebook {
+        width: 20px;
+        height: 30px;
+        margin: 10px;
 
-         @media @desktop {
-             margin: 4px auto 0 auto;
-         }
-     }
+        @media @desktop {
+            margin: 4px auto 0;
+        }
+    }
 
-     &__twitter,
-     &__instagram {
-         width: 33px;
-         margin: 10px;
+    &__twitter,
+    &__instagram {
+        width: 33px;
+        margin: 10px;
 
-         @media @tablet {
-             width: 30px;
-         }
+        @media @tablet {
+            width: 30px;
+        }
 
-         @media @desktop {
-             margin: 20px 0 0 0;
-         }
-     }
- }
+        @media @desktop {
+            margin: 20px 0 0;
+        }
+    }
+}

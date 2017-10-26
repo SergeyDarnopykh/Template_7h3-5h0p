@@ -8,8 +8,8 @@
     "start": "gulp",
     "prod": "gulp prod",
     "lint": "eslint src/js && stylelint src/less/*.less",
-    "lint fix": "eslint --fix src/js",
-    "precommit": "run lint"
+    "lint-fix": "eslint src/js --fix && stylelint src/less/*.less --fix",
+    "precommit": "npm run lint-fix"
   },
   "author": "Andrey Miskov",
   "license": "ISC",
@@ -17,15 +17,22 @@
     "browser-sync": "^2.18.11",
     "eslint": "^3.19.0",
     "gulp-autoprefixer": "^4.0.0",
-    "stylelint": "^7.13.0"
+    "stylelint": "^8.2.0"
   },
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^3.0.1",
+    "gulp-imagemin": "^3.4.0",
     "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
-    "postcss": "^6.0.13"
+    "husky": "^0.14.3",
+    "imagemin-pngquant": "^5.0.1",
+    "postcss": "^6.0.13",
+    "uglify": "^0.1.5",
+    "uglifyjs": "^2.4.11"
   }
 }

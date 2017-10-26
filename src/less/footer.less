@@ -1,4 +1,3 @@
-@import 'media';
 @import 'decor';
 
 @border: thin solid darken(@backGroundColor, 15%);
@@ -21,11 +20,12 @@
 
     &__bottom {
         padding: @pagePaddingRL 0;
+
         .flexColumn;
 
         @media @tablet {
             .flexRow;
-            padding: @pagePaddingRL / 3.5 0;
+            padding: @pagePaddingRL / 3.5 0
         }
     }
 }
@@ -51,6 +51,7 @@
 .continuous-integration {
     margin-left: auto;
     align-self: center;
+
     .flexRow;
 
     @media @phone-strict {

@@ -223,7 +223,7 @@
                 {title: 'gifts', icon: 'img/cup.svg', text: 'акции и подарки за покупку'}
             ]; %>
 
-            <% advantagesItems.forEach(item => { %>
+            <% advantagesItems.forEach( item => { %>
             <li class="advantages__item">
                 <img src="<%= item.icon %>" class="advantages__icon advantages__icon_<%= item.title %>">
                 <span class="advantages__text"><%= item.text %></span>
@@ -238,7 +238,7 @@
                 {title: 'instagram', icon: 'img/instagram.svg', link: '#'}
             ]; %>
 
-            <% socialMediaItems.forEach(item => { %>
+            <% socialMediaItems.forEach( item => { %>
             <a href="<%= item.link %>" class="social-media__link">
                 <img class="social-media__<%= item.title %>" src="<%= item.icon %>">
             </a>
