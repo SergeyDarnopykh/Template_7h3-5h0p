@@ -29,9 +29,11 @@ gulp.task('browserSync', () => {
 
 gulp.task('styles', () => {
     gulp.src('src/less/**/*.less')
+        .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(concat('all.css'))
         .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
 
