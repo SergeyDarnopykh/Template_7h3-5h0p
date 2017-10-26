@@ -49,7 +49,6 @@ gulp.task('minifyPng', () => {
             progressive: true,
             use: [imageminPngquant()]
         }))
-
         .pipe(gulp.dest('./dist/img'));
 });
 
@@ -75,5 +74,5 @@ gulp.task('watch', () => {
 
 
 gulp.task('default', ['styles', 'html', 'img', 'js', 'watch', 'browserSync']);
-gulp.task('prod', ['styles', 'html', 'minifyPng', 'svg', 'js']);
+gulp.task('prod', ['styles', 'html', 'img', 'js']);
 
