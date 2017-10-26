@@ -20,7 +20,7 @@
                 </a>
                 <img id='shopLogo' class="shop__logo" src="img/oggetto_logo.svg">
                 <span id="shopPhoneNumber"
-                      class="shop__phone-number">+7&nbsp(812)&nbsp2&bullet;12&bullet;85&bullet;06</span>
+                      class="shop__phone-number">+7 (812) 2&bullet;12&bullet;85&bullet;06</span>
             </div>
         </div>
     </div>
@@ -37,14 +37,14 @@
                 ]; %>
 
                 <% navigationItems.forEach( item => { %>
-                <li class="navigation__item<%= item.title === 'LISP' ? ' navigation__item_active' : '' %>">
-                    <% if (item.title !== 'LISP') { %>
-                    <a href="<% item.link %>" class="navigation__link"> <%= item.title %></a>
-                    <% } else { %>
-                    <%= item.title %>
-                    <% } %>
-                </li>
-                <% }); %>
+                    <li class="navigation__item<%= item.title === 'LISP' ? ' navigation__item_active' : '' %>">
+                        <% if (item.title !== 'LISP') { %>
+                            <a href="<% item.link %>" class="navigation__link"> <%= item.title %></a>
+                        <% } else { %>
+                            <%= item.title %>
+                        <% } %>
+                    </li>
+                    <% }); %>
             </ul>
             <label id="search" class="search navigation__search">
                 <img class="search__icon" src="img/search.svg">
@@ -64,13 +64,13 @@
             ]; %>
 
             <% breadcrumbsItems.forEach( item => { %>
-            <li class="breadcrumbs__item<%= item.title === 'Футболки' ? ' breadcrumbs__item_active' : '' %>">
-                <% if (item.title !== 'Футболки') { %>
-                <a href="<% item.link %>" class="breadcrumbs__link"> <%= item.title %></a>&nbsp;/&nbsp;
-                <% } else { %>
-                <%= item.title %>
-                <% } %>
-            </li>
+                <li class="breadcrumbs__item<%= item.title === 'Футболки' ? ' breadcrumbs__item_active' : '' %>">
+                    <% if (item.title !== 'Футболки') { %>
+                        <a href="<% item.link %>" class="breadcrumbs__link"> <%= item.title %></a>&nbsp;/&nbsp;
+                    <% } else { %>
+                        <%= item.title %>
+                    <% } %>
+                </li>
             <% }); %>
         </ul>
     </div>
@@ -96,11 +96,11 @@
                         ]; %>
 
                         <% sizeButtonsItems.forEach( item => { %>
-                        <button type="button" id="sizeButton<%= item.size %>"
-                                class="size-buttons_<%= item.size.toLowerCase() +
-                                (item.size === 'Medium' ? ' size-buttons_active' : '') %>">
-                            <%= item.title %>
-                        </button>
+                            <button type="button" id="sizeButton<%= item.size %>"
+                                    class="size-buttons_<%= item.size.toLowerCase() +
+                                    (item.size === 'Medium' ? ' size-buttons_active' : '') %>">
+                                <%= item.title %>
+                            </button>
                         <% }); %>
                     </div>
                 </div>
@@ -114,11 +114,11 @@
                         ]; %>
 
                         <% colorButtonsItems.forEach( item => { %>
-                        <button type="button" id="colorButton<%= item.color %>"
-                                class="color-buttons_<%= item.color.toLowerCase() +
-                                (item.color === 'White' ? ' color-buttons_active' : '') %>">
-                            <%= item.title %>
-                        </button>
+                            <button type="button" id="colorButton<%= item.color %>"
+                                    class="color-buttons_<%= item.color.toLowerCase() +
+                                    (item.color === 'White' ? ' color-buttons_active' : '') %>">
+                                <%= item.title %>
+                            </button>
                         <% }); %>
                     </div>
                 </div>
@@ -154,9 +154,9 @@
                         ]; %>
 
                         <% orderItems.forEach( item => { %>
-                        <li class="order__item">
-                            <a href="<%= item.link %>" class="order__link"><%= item.title %></a>
-                        </li>
+                            <li class="order__item">
+                                <a href="<%= item.link %>" class="order__link"><%= item.title %></a>
+                            </li>
                         <% }); %>
                     </ul>
                 </div>
@@ -170,9 +170,9 @@
                         ]; %>
 
                         <% paymentItems.forEach( item => { %>
-                        <li class="payment__item">
-                            <a href="<%= item.link %>" class="payment__link"><%= item.title %></a>
-                        </li>
+                            <li class="payment__item">
+                                <a href="<%= item.link %>" class="payment__link"><%= item.title %></a>
+                            </li>
                         <% }); %>
                     </ul>
                 </div>
@@ -192,9 +192,9 @@
                         ]; %>
 
                         <% companyItems.forEach( item => { %>
-                        <li class="company__item">
-                            <a href="<%= item.link %>" class="company__link"><%= item.title %></a>
-                        </li>
+                            <li class="company__item">
+                                <a href="<%= item.link %>" class="company__link"><%= item.title %></a>
+                            </li>
                         <% }); %>
                     </ul>
                 </div>
@@ -207,9 +207,9 @@
                         ]; %>
 
                         <% whyUsItems.forEach( item => { %>
-                        <li class="why-us__item">
-                            <a href="<%= item.link %>" class="why-us__link"><%= item.title %></a>
-                        </li>
+                            <li class="why-us__item">
+                                <a href="<%= item.link %>" class="why-us__link"><%= item.title %></a>
+                            </li>
                         <% }); %>
                     </ul>
                 </div>
@@ -224,10 +224,10 @@
             ]; %>
 
             <% advantagesItems.forEach( item => { %>
-            <li class="advantages__item">
-                <img src="<%= item.icon %>" class="advantages__icon advantages__icon_<%= item.title %>">
-                <span class="advantages__text"><%= item.text %></span>
-            </li>
+                <li class="advantages__item">
+                    <img src="<%= item.icon %>" class="advantages__icon advantages__icon_<%= item.title %>">
+                    <span class="advantages__text"><%= item.text %></span>
+                </li>
             <% }); %>
         </ul>
 
@@ -235,13 +235,16 @@
             <% const socialMediaItems = [
                 {title: 'facebook', icon: 'img/facebook.svg', link: '#'},
                 {title: 'twitter', icon: 'img/twitter.svg', link: '#'},
-                {title: 'instagram', icon: 'img/instagram.svg', link: '#'}
+                {title: 'instagram', icon: 'img/instagram.svg', link: '#'},
+                {title: 'phone', icon: 'img/phone.png', link: 'tel:88122128506'}
             ]; %>
 
             <% socialMediaItems.forEach( item => { %>
-            <a href="<%= item.link %>" class="social-media__link">
-                <img class="social-media__<%= item.title %>" src="<%= item.icon %>">
-            </a>
+                <a href="<%= item.link %>" class="social-media__link">
+                    <img id="<%= item.title%>"
+                         class="social-media__<%= item.title + (item.title === 'phone' ? ' hidden' : '') %>"
+                         src="<%= item.icon %>">
+                </a>
             <% }); %>
         </div>
     </div>

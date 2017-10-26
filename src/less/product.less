@@ -50,6 +50,7 @@
         line-height: 1.3;
 
         @media @tablet {
+            margin-bottom: @itemMargin / 2;
             line-height: 1.2;
             font-size: 18px;
         }
@@ -81,11 +82,6 @@
 }
 
 .buy {
-
-    @media @phone-strict {
-        .flexColumn;
-    }
-
     @media @tablet {
         margin-top: @itemMargin / 5;
     }
@@ -99,7 +95,11 @@
         }
 
         @media @tablet {
-            margin-bottom: @itemMargin / 1.5;
+            margin-bottom: @pagePaddingRL / 1.3;
+        }
+
+        @media @desktop {
+            margin-bottom: @pagePaddingRL / 1.5;
         }
     }
 

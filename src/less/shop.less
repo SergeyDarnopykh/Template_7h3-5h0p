@@ -38,6 +38,13 @@
     &__phone-number {
         .activeStyle;
         color: @darkRed;
+        white-space: nowrap;
+
+        @media @phone-strict {
+            display: inline-flex;
+            font-size: 30px;
+            margin: @pagePaddingRL auto 0 auto;
+        }
 
         @media @tablet {
             justify-self: right;
