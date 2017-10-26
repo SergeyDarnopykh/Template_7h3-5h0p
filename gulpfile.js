@@ -37,8 +37,8 @@ gulp.task('styles', () => {
 
 gulp.task('stylesMinify', () => {
     gulp.src('src/less/**/*.less')
-        .pipe(less())
         .pipe(sourcemaps.init())
+        .pipe(less())
         .pipe(concat('all.css'))
         .pipe(autoprefixer())
         .pipe(cleanCSS())
@@ -93,6 +93,6 @@ gulp.task('watch', () => {
 });
 
 
-gulp.task('default', ['styles', 'html', 'img', 'js', 'watch', 'browserSync']);
+gulp.task('default', ['stylesMinify', 'html', 'img', 'js', 'watch', 'browserSync']);
 gulp.task('prod', ['stylesMinify', 'html', 'imgMinify', 'js']);
 
