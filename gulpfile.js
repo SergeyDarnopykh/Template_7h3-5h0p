@@ -1,14 +1,18 @@
-const gulp = require('gulp');
-const less = require('gulp-less');
-const browserSync = require('browser-sync');
-const autoprefixer = require('gulp-autoprefixer');
-const ejs = require('gulp-ejs');
-const gutil = require('gulp-util');
-const rename = require('gulp-rename');
-const concat = require('gulp-concat');
-const sourcemaps = require('gulp-sourcemaps');
-const imagemin = require('imagemin');
-const imageminPngquant = require('imagemin-pngquant');
+const gulp = require('gulp'),
+    less = require('gulp-less'),
+    browserSync = require('browser-sync'),
+    autoprefixer = require('gulp-autoprefixer'),
+    ejs = require('gulp-ejs'),
+    gutil = require('gulp-util'),
+    rename = require('gulp-rename'),
+    concat = require('gulp-concat'),
+    sourcemaps = require('gulp-sourcemaps'),
+    imagemin = require('gulp-imagemin'),
+    imageminSvgo = require('imagemin-svgo'),
+    imageminOptipng = require('imagemin-optipng'),
+    imageminJpegtran = require('imagemin-jpegtran'),
+    imageminGifsicle = require('imagemin-gifsicle'),
+    cleanCSS = require('gulp-clean-css');
 
 gulp.task('browserSync', () => {
     browserSync.create();
@@ -26,9 +30,18 @@ gulp.task('browserSync', () => {
 gulp.task('styles', () => {
     gulp.src('src/less/**/*.less')
         .pipe(less())
+        .pipe(concat('all.css'))
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('stylesMinify', () => {
+    gulp.src('src/less/**/*.less')
+        .pipe(less())
         .pipe(sourcemaps.init())
         .pipe(concat('all.css'))
         .pipe(autoprefixer())
+        .pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
@@ -43,12 +56,19 @@ gulp.task('svg', () => {
         .pipe(gulp.dest('./dist/img'));
 });
 
-gulp.task('minifyPng', () => {
-    gulp.src('src/img/**/*.png')
-        .pipe(imagemin({
-            progressive: true,
-            use: [imageminPngquant()]
-        }))
+gulp.task('imgMinify', () => {
+    gulp.src('src/img/**/*.*')
+        .pipe(imagemin([
+            imageminJpegtran({interlaced: true}),
+            imageminGifsicle({progressive: true}),
+            imageminOptipng({optimizationLevel: 5}),
+            imageminSvgo({
+                plugins: [
+                    {removeViewBox: false},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
         .pipe(gulp.dest('./dist/img'));
 });
 
@@ -74,5 +94,5 @@ gulp.task('watch', () => {
 
 
 gulp.task('default', ['styles', 'html', 'img', 'js', 'watch', 'browserSync']);
-gulp.task('prod', ['styles', 'html', 'img', 'js']);
+gulp.task('prod', ['stylesMinify', 'html', 'imgMinify', 'js']);
 
