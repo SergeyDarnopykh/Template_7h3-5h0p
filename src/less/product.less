@@ -30,7 +30,6 @@
     &__name {
         margin: @pagePaddingRL 0  @itemMargin - 1 0;
         font-size: 25px;
-
         .activeStyle;
 
         @media @tablet {
@@ -90,11 +89,12 @@
     }
 
     &__now {
+        margin-bottom: @pagePaddingRL + 3;
+
         @media @phone-strict {
             .flexRow;
             justify-content: center;
         }
-        margin-bottom: @pagePaddingRL + 3;
 
         @media @tablet {
             margin-bottom: @itemMargin / 1.5;
