@@ -48,6 +48,13 @@
     &__field {
         width: 100%;
         height: 40px;
+        .shaded;
+        text-indent: 20px;
+        border: thin solid darken(@backGroundColor, 10%);
+
+        &:focus {
+            outline: none;
+        }
 
         @media @tablet {
             height: 35px;
@@ -58,31 +65,25 @@
             height: 35px;
             width: 300px;
         }
-
-        &:focus {
-            outline: none;
-        }
-
-        .shaded;
-        text-indent: 20px;
-        border: thin solid darken(@backGroundColor, 10%);
     }
 
     &__icon {
-        width: 25px;
-
-        @media @phone-strict {
+        @media @phone {
+            width: 30px;
+            height: 30px;
             position: relative;
-            left: 90%;
+            left: 89%;
         }
 
         @media @tablet {
             width: 25px;
             height: 25px;
-            position: relative;
-            left: 90%;
+            left: 87%;
             top: 9px;
-            z-index: 10;
+        }
+
+        @media @desktop {
+            left: 90%;
         }
     }
 }
