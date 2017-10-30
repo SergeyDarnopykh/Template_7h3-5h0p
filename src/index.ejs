@@ -46,10 +46,13 @@
                     </li>
                     <% }); %>
             </ul>
-            <label id="search" class="search navigation__search">
-                <img class="search__icon" src="img/search.svg">
-                <input class="search__field" type="text">
-            </label>
+
+            <form class="search__form">
+                <label id="search" class="search navigation__search">
+                    <img class="search__icon" src="img/search.svg">
+                    <input class="search__field" type="text">
+                </label>
+            </form>
         </div>
     </div>
 </header>
@@ -78,7 +81,7 @@
     <div id="product" class="product">
         <img class="product__img" id="productImg" src="img/tshirt_white.jpg">
 
-        <div id="productInfo" class="product__info">
+        <form id="productInfo" class="product__info">
             <span class="product__name">Футболка Alien technology</span>
             <p class="product__manufacture">Состав: 100% хлопок, динамическая типизация, польская нотация.
                 Производство: Россия.</p>
@@ -88,37 +91,41 @@
                 <div id="productSize" class="size product__size">
                     <span class="size__title">Размер:</span>
 
-                    <div class="size-buttons">
+                    <div id="sizeColorButtons" class="size-color-buttons">
                         <% const sizeButtonsItems = [
-                            {size: 'Small', title: 'S'},
-                            {size: 'Medium', title: 'M'},
-                            {size: 'Large', title: 'L'}
+                            {size: 'small', title: 'S'},
+                            {size: 'medium', title: 'M'},
+                            {size: 'large', title: 'L'}
                         ]; %>
 
                         <% sizeButtonsItems.forEach( item => { %>
-                            <button type="button" id="sizeButton<%= item.size %>"
-                                    class="size-buttons_<%= item.size.toLowerCase() +
-                                    (item.size === 'Medium' ? ' size-buttons_active' : '') %>">
+                            <input id="<%= item.size %>Button" class="size-color-buttons_input" type="radio" name="size-buttons"
+                               data-type="<%= item.size %>"
+                                <%= item.size === 'medium' ? 'checked' : '' %> >
+
+                            <label for="<%= item.size %>Button" class="size-color-button size-color-buttons_<%= item.size %>" >
                                 <%= item.title %>
-                            </button>
+                             </label>
                         <% }); %>
                     </div>
                 </div>
                 <div id="productColor" class="color product__color">
                     <span class="color__title">Цвет:</span>
-                    <div class="color-buttons">
+                    <div id="sizeColorButtons" class="size-color-buttons">
                         <% const colorButtonsItems = [
-                            {color: 'White'},
-                            {color: 'Yellow'},
-                            {color: 'Green'}
+                            {color: 'white'},
+                            {color: 'yellow'},
+                            {color: 'green'}
                         ]; %>
 
                         <% colorButtonsItems.forEach( item => { %>
-                            <button type="button" id="colorButton<%= item.color %>"
-                                    class="color-buttons_<%= item.color.toLowerCase() +
-                                    (item.color === 'White' ? ' color-buttons_active' : '') %>">
+                            <input id="<%= item.color %>Button" class="size-color-buttons_input" type="radio" name="color-buttons"
+                                   data-type="<%= item.color %>"
+                                    <%= item.color === 'white' ? 'checked' : '' %>>
+
+                            <label for="<%= item.color %>Button" class="size-color-button size-color-buttons_<%= item.color %>" >
                                 <%= item.title %>
-                            </button>
+                            </label>
                         <% }); %>
                     </div>
                 </div>
@@ -126,7 +133,7 @@
 
             <div id="productBuy" class="buy product__buy">
                 <div class="buy__now">
-                    <button type="button" class="buy-button">
+                    <button type="submit" class="buy-button">
                         <a href="#" class="buy-button__link">Купить</a>
                     </button>
                 </div>
@@ -135,7 +142,7 @@
                     <a href='#' class="buy__link">Отложить на потом</a>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
