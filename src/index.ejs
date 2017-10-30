@@ -16,9 +16,9 @@
         <div class="shop">
             <div id="shopInfo" class="shop__info">
                 <a href="#" id="shopLink" class="shop__link">
-                    <img class="shop__name" src="img/the_shop_logo.svg">
+                    <img class="shop__name" src="img/the_shop_logo.svg" alt="shop-name">
                 </a>
-                <img id='shopLogo' class="shop__logo" src="img/oggetto_logo.svg">
+                <img id='shopLogo' class="shop__logo" src="img/oggetto_logo.svg" alt="shop-logo">
                 <span id="shopPhoneNumber"
                       class="shop__phone-number">+7 (812) 2&bullet;12&bullet;85&bullet;06</span>
             </div>
@@ -49,7 +49,7 @@
 
             <form class="search__form">
                 <label id="search" class="search navigation__search">
-                    <img class="search__icon" src="img/search.svg">
+                    <img class="search__icon" src="img/search.svg" alt="search">
                     <input class="search__field" type="text">
                 </label>
             </form>
@@ -79,7 +79,7 @@
     </div>
 
     <div id="product" class="product">
-        <img class="product__img" id="productImg" src="img/tshirt_white.jpg">
+        <img class="product__img" id="productImg" src="img/tshirt_white.jpg" alt="product-image">
 
         <form id="productInfo" class="product__info">
             <span class="product__name">Футболка Alien technology</span>
@@ -91,7 +91,7 @@
                 <div id="productSize" class="size product__size">
                     <span class="size__title">Размер:</span>
 
-                    <div id="sizeColorButtons" class="size-color-buttons">
+                    <div class="size-color-buttons">
                         <% const sizeButtonsItems = [
                             {size: 'small', title: 'S'},
                             {size: 'medium', title: 'M'},
@@ -111,7 +111,7 @@
                 </div>
                 <div id="productColor" class="color product__color">
                     <span class="color__title">Цвет:</span>
-                    <div id="sizeColorButtons" class="size-color-buttons">
+                    <div class="size-color-buttons">
                         <% const colorButtonsItems = [
                             {color: 'white'},
                             {color: 'yellow'},
@@ -133,12 +133,12 @@
 
             <div id="productBuy" class="buy product__buy">
                 <div class="buy__now">
-                    <button type="submit" class="buy-button">
-                        <a href="#" class="buy-button__link">Купить</a>
-                    </button>
+                    <form class="buy__now_form" action="#">
+                        <button type="submit" class="buy-button">Купить</button>
+                    </form>
                 </div>
                 <div class="buy__later">
-                    <img class="buy__later_heart" src="img/heart.png">
+                    <img class="buy__later_heart" src="img/heart.png" alt="heart">
                     <a href='#' class="buy__link">Отложить на потом</a>
                 </div>
             </div>
@@ -232,7 +232,8 @@
 
             <% advantagesItems.forEach( item => { %>
                 <li class="advantages__item">
-                    <img src="<%= item.icon %>" class="advantages__icon advantages__icon_<%= item.title %>">
+                    <img src="<%= item.icon %>" class="advantages__icon advantages__icon_<%= item.title %>"
+                    alt="<%= item.title %>">
                     <span class="advantages__text"><%= item.text %></span>
                 </li>
             <% }); %>
@@ -250,7 +251,8 @@
                 <a href="<%= item.link %>" class="social-media__link">
                     <img id="<%= item.title%>"
                          class="social-media__<%= item.title + (item.title === 'phone' ? ' hidden' : '') %>"
-                         src="<%= item.icon %>">
+                         src="<%= item.icon %>"
+                         alt="<%= item.title %>">
                 </a>
             <% }); %>
         </div>
@@ -263,7 +265,7 @@
         </p>
         <div class="continuous-integration">
             <a href="https://travis-ci.org/" class="continuous-integration__link">
-                <img class="continuous-integration__icon" src="img/TravisCI.png">
+                <img class="continuous-integration__icon" src="img/TravisCI.png" alt="travis">
             </a>
             <p class="continuous-integration__text">
                 This page uses Travis for continuous integration.
