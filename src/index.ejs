@@ -99,7 +99,7 @@
                         ]; %>
 
                         <% sizeButtonsItems.forEach( item => { %>
-                            <input id="<%= item.size %>Button" class="size-color-buttons_input" type="radio" name="size-button"
+                            <input id="<%= item.size %>Button" class="size-color-buttons_input" type="radio" name="size"
                                data-type="<%= item.size %>"
                                value="<%= item.size %>"
                                 <%= item.size === 'medium' ? 'checked' : '' %> >
@@ -120,7 +120,7 @@
                         ]; %>
 
                         <% colorButtonsItems.forEach( item => { %>
-                            <input id="<%= item.color %>Button" class="size-color-buttons_input" type="radio" name="color-button"
+                            <input id="<%= item.color %>Button" class="size-color-buttons_input" type="radio" name="color"
                                    data-type="<%= item.color %>"
                                    value="<%= item.color %>"
                                     <%= item.color === 'white' ? 'checked' : '' %>>
