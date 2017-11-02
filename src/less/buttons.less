@@ -1,0 +1,79 @@
+@import 'decor';
+
+.size-color-button {
+    .button;
+    .shaded;
+    .flexRow;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: white;
+    margin: @pagePaddingRL + 2 4px @pagePaddingRL * 3 0;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    @media @tablet {
+        font-size: 18px;
+        margin: @itemMargin / 2 6px @itemMargin / 1.3 0;
+    }
+
+    @media @desktop {
+        font-size: 24px;
+    }
+}
+
+.size-color-buttons {
+    .flexRow;
+
+    &_white {
+        background-color: white;
+    }
+
+    &_yellow {
+        background-color: #e3d95e;
+    }
+
+    &_green {
+        background-color: #a5af96;
+    }
+
+    &_input {
+        display: none;
+
+        &:checked + label {
+            border: 2px solid @darkRed;
+        }
+    }
+}
+
+.buy-button {
+    .shaded;
+    background: @darkRed;
+    color: white;
+    border: none;
+    height: 45px;
+    width: 130px;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media @tablet {
+        font-size: 26px;
+        height: 55px;
+        width: 150px;
+    }
+
+    @media @desktop {
+        font-family: @fontRoboto;
+        height: 65px;
+        width: 170px;
+    }
+}
+
+

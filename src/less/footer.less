@@ -1,0 +1,76 @@
+@import 'decor';
+
+@border: thin solid darken(@backGroundColor, 15%);
+
+.footer {
+    background: @backGroundColor;
+    padding: (@pagePaddingRL + 1) / 2 @pagePaddingRL;
+    font-family: @fontRoboto;
+
+    &__top {
+        .flexColumn;
+        padding-bottom: @pagePaddingRL - 2;
+        border-bottom: @border;
+
+        @media @tablet {
+            .flexRow;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__bottom {
+        padding: @pagePaddingRL 0;
+
+        .flexColumn;
+
+        @media @tablet {
+            .flexRow;
+            padding: @pagePaddingRL / 3.5 0
+        }
+    }
+}
+
+.copyright {
+    font-size: 12px;
+    line-height: 1.7;
+
+    @media @phone-strict {
+        border-bottom: @border;
+        padding-bottom: @pagePaddingRL;
+    }
+
+    @media @tablet-strict {
+        padding-right: 7%;
+    }
+
+    @media @tablet {
+        font-size: 14px;
+    }
+}
+
+.continuous-integration {
+    margin-left: auto;
+    align-self: center;
+
+    .flexRow;
+
+    @media @phone-strict {
+        padding-top: @pagePaddingRL;
+        margin: 0 auto;
+    }
+
+    &__icon {
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    &__text {
+        font-style: italic;
+        font-size: 12px;
+
+        @media @tablet {
+            padding-right: 1%;
+            font-size: 14px;
+        }
+    }
+}
