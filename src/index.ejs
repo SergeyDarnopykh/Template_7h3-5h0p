@@ -13,7 +13,7 @@
 
 <header id="header" class="header">
     <div id="headerTop" class="header__top">
-        <div class="shop">
+        <div id="shop" class="shop">
             <a href="#" id="shopLink" class="shop-name shop-name__link">
                 <img class="shop-name__img" src="img/the_shop_logo.svg" alt="shop-name">
             </a>
@@ -45,8 +45,8 @@
                     <% }); %>
             </ul>
 
-            <form class="search__form">
-                <label id="search" class="search navigation__search">
+            <form id="search" class="search">
+                <label class="search__label">
                     <img class="search__icon" src="img/search.svg" alt="search">
                     <input class="search__field" type="text">
                 </label>
@@ -77,19 +77,19 @@
     </div>
 
     <div id="product" class="product">
-        <img class="product__img" id="productImg" src="img/tshirt_white.jpg" alt="product-image">
+        <img class="product-img" id="productImg" src="img/tshirt_white.jpg" alt="product-image">
 
-        <form id="productInfo" class="product__info" action="#">
-            <span class="product__name">Футболка Alien technology</span>
-            <p class="product__manufacture">Состав: 100% хлопок, динамическая типизация, польская нотация.
+        <form id="productInfo" class="product-info" action="#">
+            <span class="product-name">Футболка Alien technology</span>
+            <p class="product-manufacture">Состав: 100% хлопок, динамическая типизация, польская нотация.
                 Производство: Россия.</p>
-            <span id="productCost" class="product__cost">1500&#8381;</span>
+            <span id="productCost" class="product-cost">1500&#8381;</span>
 
-            <div id="productSizeColor" class="product__size-color">
-                <div id="productSize" class="size product__size">
+            <div id="productProperties" class="product-properties">
+                <div id="productSize" class="size product-properties_size">
                     <span class="size__title">Размер:</span>
 
-                    <div class="size-color-buttons">
+                    <div class="product-properties-buttons">
                         <% const sizeButtonsItems = [
                             {size: 'small', title: 'S'},
                             {size: 'medium', title: 'M'},
@@ -97,20 +97,24 @@
                         ]; %>
 
                         <% sizeButtonsItems.forEach( item => { %>
-                            <input id="<%= item.size %>Button" class="size-color-buttons_input" type="radio" name="size"
-                               data-type="<%= item.size %>"
-                               value="<%= item.size %>"
-                                <%= item.size === 'medium' ? 'checked' : '' %> >
+                            <input id="<%= item.size %>Button" class="product-properties-buttons_input"
+                                   type="radio" name="size"
+                                   data-type="size"
+                                   data-type-value="<%= item.size %>"
+                                   value="<%= item.size %>"
+                                    <%= item.size === 'medium' ? 'checked' : '' %> >
 
-                            <label for="<%= item.size %>Button" class="size-color-button size-color-buttons_<%= item.size %>" >
+                            <label for="<%= item.size %>Button"
+                                   class="product-properties-buttons_button
+                                   product-properties-buttons_<%= item.size %>" >
                                 <%= item.title %>
                              </label>
                         <% }); %>
                     </div>
                 </div>
-                <div id="productColor" class="color product__color">
+                <div id="productColor" class="color product-properties_color">
                     <span class="color__title">Цвет:</span>
-                    <div class="size-color-buttons">
+                    <div class="product-properties-buttons">
                         <% const colorButtonsItems = [
                             {color: 'white'},
                             {color: 'yellow'},
@@ -118,12 +122,16 @@
                         ]; %>
 
                         <% colorButtonsItems.forEach( item => { %>
-                            <input id="<%= item.color %>Button" class="size-color-buttons_input" type="radio" name="color"
-                                   data-type="<%= item.color %>"
+                            <input id="<%= item.color %>Button" class="product-properties-buttons_input"
+                                   type="radio" name="color"
+                                   data-type="color"
+                                   data-type-value="<%= item.color %>"
                                    value="<%= item.color %>"
                                     <%= item.color === 'white' ? 'checked' : '' %>>
 
-                            <label for="<%= item.color %>Button" class="size-color-button size-color-buttons_<%= item.color %>" >
+                            <label for="<%= item.color %>Button"
+                                   class="product-properties-buttons_button
+                                   product-properties-buttons_<%= item.color %>" >
                                 <%= item.title %>
                             </label>
                         <% }); %>
@@ -146,9 +154,10 @@
 
 <footer class="footer">
     <div class="footer__top">
-        <div class="service-support">
-            <span id="serviceSupportTitle" class="service-support__title">Сервис и поддержка</span>
-            <div id="serviceSupport" class="service-support__container">
+        <div class="footer-i footer-i_service-support">
+            <span id="serviceSupportTitle"
+                  class="footer-i__title footer-i__title_about">Сервис и поддержка</span>
+            <div id="serviceSupport" class="footer-i__container">
                 <div class="order">
                     <ul class="order__list">
                         <% const orderItems = [
@@ -184,10 +193,10 @@
             </div>
         </div>
 
-        <div class="about">
-            <span id="aboutTitle" class="about__title">О компании</span>
-            <div id="about" class="about__container">
-                <div class="company">
+        <div class="footer-i footer-i_about">
+            <span id="aboutTitle" class="footer-i__title">О компании</span>
+            <div id="about" class="footer-i__container">
+                <div class="company about_company">
                     <ul class="company__list">
                         <% const companyItems = [
                             {title: 'О нас', link: '#'},
@@ -203,7 +212,7 @@
                         <% }); %>
                     </ul>
                 </div>
-                <div class="why-us">
+                <div class="why-us about_why-us">
                     <ul class="why-us__list">
                         <% const whyUsItems = [
                             {title: 'Сертификаты', link: '#'},

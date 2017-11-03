@@ -1,7 +1,6 @@
 @import 'decor';
 
-.service-support,
-.about {
+.footer-i {
     .flexColumn;
     align-self: flex-start;
 
@@ -14,11 +13,29 @@
             font-size: 18px;
             margin-bottom: 25px;
         }
+
+        &_about {
+            @media @phone-strict {
+                margin-top: 4%;
+            }
+        }
     }
 
     &__container {
         .flexRow;
         align-items: flex-start;
+    }
+
+    &_service-support {
+        padding-right: @pagePaddingRL;
+    }
+
+    &_about {
+        padding-right: @pagePaddingRL;
+
+        @media @tablet-strict {
+            margin-left: auto;
+        }
     }
 }
 
@@ -68,23 +85,5 @@
         }
         color: black;
         text-decoration: none;
-    }
-}
-
-.service-support {
-    padding-right: @pagePaddingRL;
-}
-
-.about {
-    padding-right: @pagePaddingRL;
-
-    @media @tablet-strict {
-        margin-left: auto;
-    }
-
-    &__title {
-        @media @phone-strict {
-            margin-top: 4%;
-        }
     }
 }

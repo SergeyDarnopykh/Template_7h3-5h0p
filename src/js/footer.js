@@ -6,20 +6,25 @@ function changeVisibility(elem) {
     }
 }
 
-if (window.innerWidth < 768) {
-    const serviceSupport = document.querySelector('#serviceSupport'),
-        serviceSupportTitle = document.querySelector('#serviceSupportTitle'),
-        about = document.querySelector('#about'),
-        aboutTitle = document.querySelector('#aboutTitle');
+const swapFooterToPhone = function() {
+    if (window.innerWidth < 768) {
+        const serviceSupport = document.querySelector('#serviceSupport'),
+            serviceSupportTitle = document.querySelector('#serviceSupportTitle'),
+            about = document.querySelector('#about'),
+            aboutTitle = document.querySelector('#aboutTitle');
 
-    serviceSupport.className += ' hidden';
-    about.className += ' hidden';
+        serviceSupport.className += ' hidden';
+        about.className += ' hidden';
 
-    serviceSupportTitle.onclick = function () {
-        changeVisibility(serviceSupport);
-    };
+        serviceSupportTitle.onclick = function () {
+            changeVisibility(serviceSupport);
+        };
 
-    aboutTitle.onclick = function () {
-        changeVisibility(about);
-    };
-}
+        aboutTitle.onclick = function () {
+            changeVisibility(about);
+        };
+    }
+};
+
+document.addEventListener('onload', swapFooterToPhone());
+window.addEventListener('onresize', swapFooterToPhone());

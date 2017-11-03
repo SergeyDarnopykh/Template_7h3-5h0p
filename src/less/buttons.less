@@ -1,30 +1,30 @@
 @import 'decor';
 
-.size-color-button {
-    .button;
-    .shaded;
+.product-properties-buttons {
     .flexRow;
-    justify-content: center;
-    box-sizing: border-box;
-    background-color: white;
-    margin: @pagePaddingRL + 2 4px @pagePaddingRL * 3 0;
 
-    &:last-child {
-        margin-right: 0;
+    &_button {
+        .button;
+        .shaded;
+        .flexRow;
+        justify-content: center;
+        box-sizing: border-box;
+        background-color: white;
+        margin: @pagePaddingRL + 2 4px @pagePaddingRL * 3 0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        @media @tablet {
+            font-size: 18px;
+            margin: @itemMargin / 2 6px @itemMargin / 1.3 0;
+        }
+
+        @media @desktop {
+            font-size: 24px;
+        }
     }
-
-    @media @tablet {
-        font-size: 18px;
-        margin: @itemMargin / 2 6px @itemMargin / 1.3 0;
-    }
-
-    @media @desktop {
-        font-size: 24px;
-    }
-}
-
-.size-color-buttons {
-    .flexRow;
 
     &_white {
         background-color: white;

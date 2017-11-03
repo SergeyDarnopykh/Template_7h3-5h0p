@@ -39,10 +39,12 @@
 }
 
 .search {
-    @media @phone-strict {
-        .flexRow;
-        justify-content: flex-start;
-        margin: @pagePaddingRL @pagePaddingRL 0 0;
+    &__label {
+        @media @phone-strict {
+            .flexRow;
+            justify-content: flex-start;
+            margin: @pagePaddingRL @pagePaddingRL 0 0;
+        }
     }
 
     &__field {
