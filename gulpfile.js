@@ -12,7 +12,8 @@ const gulp = require('gulp'),
     imageminOptipng = require('imagemin-optipng'),
     imageminJpegtran = require('imagemin-jpegtran'),
     imageminGifsicle = require('imagemin-gifsicle'),
-    cleanCSS = require('gulp-clean-css');
+    cleanCSS = require('gulp-clean-css'),
+    env = process.env.NODE_ENV || 'development';
 
 gulp.task('browserSync', () => {
     browserSync.create();
@@ -33,34 +34,14 @@ gulp.task('styles', () => {
         .pipe(less())
         .pipe(concat('all.css'))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/css'));
-});
-
-gulp.task('stylesMinify', () => {
-    gulp.src('src/less/**/*.less')
-        .pipe(sourcemaps.init())
-        .pipe(less())
-        .pipe(concat('all.css'))
-        .pipe(autoprefixer())
-        .pipe(cleanCSS())
+        .pipe(env === 'development' || cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
-        .pipe(gulp.dest('./dist/img'));
-});
-
-gulp.task('svg', () => {
-    gulp.src('src/img/**/*.svg')
-        .pipe(gulp.dest('./dist/img'));
-});
-
-gulp.task('imgMinify', () => {
-    gulp.src('src/img/**/*.*')
-        .pipe(imagemin([
+        . pipe(env === 'development' || imagemin([
             imageminJpegtran({interlaced: true}),
             imageminGifsicle({progressive: true}),
             imageminOptipng({optimizationLevel: 5}),
@@ -71,6 +52,11 @@ gulp.task('imgMinify', () => {
                 ]
             })
         ]))
+        .pipe(gulp.dest('./dist/img'));
+});
+
+gulp.task('svg', () => {
+    gulp.src('src/img/**/*.svg')
         .pipe(gulp.dest('./dist/img'));
 });
 
@@ -95,6 +81,6 @@ gulp.task('watch', () => {
 });
 
 
-gulp.task('default', ['stylesMinify', 'html', 'img', 'js', 'watch', 'browserSync']);
-gulp.task('prod', ['stylesMinify', 'html', 'imgMinify', 'js']);
+gulp.task('default', ['styles', 'html', 'img', 'js', 'watch', 'browserSync']);
+gulp.task('prod', ['styles', 'html', 'img', 'js']);
 
