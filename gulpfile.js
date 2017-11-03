@@ -8,12 +8,12 @@ const gulp = require('gulp'),
     concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
     imagemin = require('gulp-imagemin'),
-    imageminSvgo = require('imagemin-svgo'),
-    imageminOptipng = require('imagemin-optipng'),
-    imageminJpegtran = require('imagemin-jpegtran'),
-    imageminGifsicle = require('imagemin-gifsicle'),
     cleanCSS = require('gulp-clean-css'),
     env = process.env.NODE_ENV || 'development';
+
+function isDevelopment() {
+    return env === 'production';
+}
 
 gulp.task('browserSync', () => {
     browserSync.create();
@@ -34,24 +34,14 @@ gulp.task('styles', () => {
         .pipe(less())
         .pipe(concat('all.css'))
         .pipe(autoprefixer())
-        .pipe(env === 'development' || cleanCSS())
+        .pipe(isDevelopment() || cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
-        . pipe(env === 'development' || imagemin([
-            imageminJpegtran({interlaced: true}),
-            imageminGifsicle({progressive: true}),
-            imageminOptipng({optimizationLevel: 5}),
-            imageminSvgo({
-                plugins: [
-                    {removeViewBox: false},
-                    {cleanupIDs: false}
-                ]
-            })
-        ]))
+        . pipe(isDevelopment() || imagemin())
         .pipe(gulp.dest('./dist/img'));
 });
 
