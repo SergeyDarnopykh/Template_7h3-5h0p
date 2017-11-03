@@ -12,7 +12,7 @@ const gulp = require('gulp'),
     env = process.env.NODE_ENV || 'development';
 
 function isDevelopment() {
-    return env === 'production';
+    return env === 'development';
 }
 
 gulp.task('browserSync', () => {

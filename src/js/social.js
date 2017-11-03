@@ -3,7 +3,7 @@ const swapSocialToPhone = function() {
         const phone = document.querySelector('#phone');
         phone.classList.remove('hidden');
     }
-}
+};
 
 document.addEventListener('onload', swapSocialToPhone());
 window.addEventListener('onresize', swapSocialToPhone());
