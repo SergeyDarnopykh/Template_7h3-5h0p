@@ -1,13 +1,22 @@
-const swapProductToPhone = function() {
-    if (window.innerWidth < 768) {
-        const productInfo = document.querySelector('#productInfo'),
-            productProperties = productInfo.querySelector('#productProperties'),
-            productCost = productInfo.querySelector('#productCost');
+const changeProduct = function(event) {
+    const productInfo = document.querySelector('#productInfo'),
+        productProperties = productInfo.querySelector('#productProperties'),
+        productCost = productInfo.querySelector('#productCost'),
+        productBuy = productInfo.querySelector('#productBuy');
 
-        productProperties.remove();
-        productInfo.insertBefore(productProperties, productCost);
+    if (window.innerWidth < 768) {
+        productCost.remove();
+        productInfo.insertBefore(productCost, productBuy);
+    } else if (event.type === 'resize') {
+        productCost.remove();
+        productInfo.insertBefore(productCost, productProperties);
     }
 };
 
-document.addEventListener('onload', swapProductToPhone());
-window.addEventListener('onresize', swapProductToPhone());
+window.addEventListener('load', event => {
+    changeProduct(event);
+});
+
+window.addEventListener('resize', event => {
+    changeProduct(event);
+});

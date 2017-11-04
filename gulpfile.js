@@ -9,11 +9,8 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     imagemin = require('gulp-imagemin'),
     cleanCSS = require('gulp-clean-css'),
-    env = process.env.NODE_ENV || 'development';
-
-function isDevelopment() {
-    return env === 'development';
-}
+    gulpIf = require('gulp-if-else'),
+    isProduction = process.env.NODE_ENV === 'production';
 
 gulp.task('browserSync', () => {
     browserSync.create();
@@ -34,14 +31,14 @@ gulp.task('styles', () => {
         .pipe(less())
         .pipe(concat('all.css'))
         .pipe(autoprefixer())
-        .pipe(isDevelopment() || cleanCSS())
+        .pipe(gulpIf(isProduction, cleanCSS))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
-        . pipe(isDevelopment() || imagemin())
+        . pipe(gulpIf(isProduction, imagemin))
         .pipe(gulp.dest('./dist/img'));
 });
 
@@ -71,7 +68,6 @@ gulp.task('watch', () => {
     gulp.watch('src/img/**/*.*', ['img']);
     gulp.watch('src/js/**/*.*', ['js']);
 });
-
 
 gulp.task('default', ['styles', 'html', 'img', 'js', 'watch', 'browserSync']);
 gulp.task('prod', ['styles', 'html', 'img', 'js']);

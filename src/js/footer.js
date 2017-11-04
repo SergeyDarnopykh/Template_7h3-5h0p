@@ -1,30 +1,53 @@
+const serviceSupport = document.querySelector('#serviceSupport'),
+    serviceSupportTitle = document.querySelector('#serviceSupportTitle'),
+    about = document.querySelector('#about'),
+    aboutTitle = document.querySelector('#aboutTitle');
+
+let isPhone = window.innerWidth < 768;
+
+function hide(elem) {
+    elem.className += ' hidden';
+}
+
+function show(elem) {
+    elem.classList.remove('hidden');
+}
+
 function changeVisibility(elem) {
     if (elem.className.includes('hidden')) {
-        elem.classList.remove('hidden');
+        show(elem);
     } else {
-        elem.className += ' hidden';
+        hide(elem);
     }
 }
 
-const swapFooterToPhone = function() {
-    if (window.innerWidth < 768) {
-        const serviceSupport = document.querySelector('#serviceSupport'),
-            serviceSupportTitle = document.querySelector('#serviceSupportTitle'),
-            about = document.querySelector('#about'),
-            aboutTitle = document.querySelector('#aboutTitle');
+const changeFooterElements = function() {
+    isPhone = window.innerWidth < 768;
 
-        serviceSupport.className += ' hidden';
-        about.className += ' hidden';
+    if (isPhone) {
+        hide(about);
+        hide(serviceSupport);
 
-        serviceSupportTitle.onclick = function () {
+        serviceSupportTitle.onclick = () => {
             changeVisibility(serviceSupport);
         };
 
-        aboutTitle.onclick = function () {
+        aboutTitle.onclick = () => {
             changeVisibility(about);
         };
+    } else {
+        show(about);
+        show(serviceSupport);
+
+        serviceSupportTitle.onclick = '';
+        aboutTitle.onclick = '';
     }
 };
 
-document.addEventListener('onload', swapFooterToPhone());
-window.addEventListener('onresize', swapFooterToPhone());
+window.addEventListener('load', () => {
+    changeFooterElements();
+});
+
+window.addEventListener('resize', () => {
+    changeFooterElements();
+});

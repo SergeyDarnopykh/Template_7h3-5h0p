@@ -1,9 +1,17 @@
-const swapSocialToPhone = function() {
+const phone = document.querySelector('#phone');
+
+const changeSocial = function(event) {
     if (window.innerWidth < 768) {
-        const phone = document.querySelector('#phone');
         phone.classList.remove('hidden');
+    } else if (event.type === 'resize') {
+        phone.classList += ' hidden';
     }
 };
 
-document.addEventListener('onload', swapSocialToPhone());
-window.addEventListener('onresize', swapSocialToPhone());
+window.addEventListener('load', event => {
+    changeSocial(event);
+});
+
+window.addEventListener('resize', event => {
+    changeSocial(event);
+});
