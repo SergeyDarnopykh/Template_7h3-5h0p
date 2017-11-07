@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp",
+    "start": "NODE_ENV=development gulp",
     "prod": "gulp prod",
-    "lint": "eslint src/js && stylelint src/less/*.less",
-    "lint-fix": "eslint src/js --fix && stylelint src/less/*.less --fix",
+    "lint": "eslint *.js && stylelint src/less/*.less",
+    "lint-fix": "eslint *.js --fix && stylelint src/less/*.less --fix",
     "precommit": "npm run lint-fix"
   },
   "author": "Andrey Miskov",
@@ -24,6 +24,8 @@
     "gulp-clean-css": "^3.9.0",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^3.0.1",
+    "gulp-html-validator": "0.0.5",
+    "gulp-if-else": "^1.0.3",
     "gulp-imagemin": "^3.4.0",
     "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",

@@ -1,21 +1,21 @@
 @import 'decor';
 
 .shop {
-    &__info {
-        @media @phone-strict {
-            .flexRow;
-            justify-content: space-between;
-        }
-
-        @media @tablet {
-            display: grid;
-            align-items: center;
-            grid-template-columns: 15% 70% 15%;
-            grid-column-gap: 0;
-        }
+    @media @phone-strict {
+        .flexRow;
+        justify-content: space-between;
     }
 
-    &__name {
+    @media @tablet {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 15% 70% 15%;
+        grid-column-gap: 0;
+    }
+}
+
+.shop-name {
+    &__img {
         width: 200px;
 
         @media @tablet {
@@ -23,36 +23,38 @@
             width: 100px;
         }
     }
+}
 
-    &__logo {
-        width: 70px;
-        background-color: white;
-        border-radius: 50%;
+.shop-logo {
+    width: 70px;
+    background-color: white;
+    border-radius: 50%;
 
-        @media @tablet {
-            width: 50px;
-            justify-self: center;
-        }
-    }
-
-    &__phone-number {
-        .activeStyle;
-        color: @darkRed;
-        white-space: nowrap;
-
-        @media @phone-strict {
-            display: inline-flex;
-            font-size: 30px;
-            margin: @pagePaddingRL auto 0 auto;
-        }
-
-        @media @tablet {
-            justify-self: right;
-            font-size: 20px;
-        }
-
-        @media @desktop {
-            font-size: 28px;
-        }
+    @media @tablet {
+        width: 50px;
+        justify-self: center;
     }
 }
+
+.shop-phone-number {
+    .activeStyle;
+    color: @darkRed;
+    white-space: nowrap;
+
+    @media @phone-strict {
+        display: inline-flex;
+        font-size: 30px;
+        margin: @pagePaddingRL auto 0 auto;
+    }
+
+    @media @tablet {
+        justify-self: right;
+        font-size: 20px;
+    }
+
+    @media @desktop {
+        font-size: 28px;
+    }
+}
+
+

@@ -8,11 +8,9 @@ const gulp = require('gulp'),
     concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
     imagemin = require('gulp-imagemin'),
-    imageminSvgo = require('imagemin-svgo'),
-    imageminOptipng = require('imagemin-optipng'),
-    imageminJpegtran = require('imagemin-jpegtran'),
-    imageminGifsicle = require('imagemin-gifsicle'),
-    cleanCSS = require('gulp-clean-css');
+    cleanCSS = require('gulp-clean-css'),
+    gulpIf = require('gulp-if-else'),
+    isProduction = process.env.NODE_ENV === 'production';
 
 gulp.task('browserSync', () => {
     browserSync.create();
@@ -33,23 +31,14 @@ gulp.task('styles', () => {
         .pipe(less())
         .pipe(concat('all.css'))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/css'));
-});
-
-gulp.task('stylesMinify', () => {
-    gulp.src('src/less/**/*.less')
-        .pipe(sourcemaps.init())
-        .pipe(less())
-        .pipe(concat('all.css'))
-        .pipe(autoprefixer())
-        .pipe(cleanCSS())
+        .pipe(gulpIf(isProduction, cleanCSS))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
+        . pipe(gulpIf(isProduction, imagemin))
         .pipe(gulp.dest('./dist/img'));
 });
 
@@ -58,25 +47,11 @@ gulp.task('svg', () => {
         .pipe(gulp.dest('./dist/img'));
 });
 
-gulp.task('imgMinify', () => {
-    gulp.src('src/img/**/*.*')
-        .pipe(imagemin([
-            imageminJpegtran({interlaced: true}),
-            imageminGifsicle({progressive: true}),
-            imageminOptipng({optimizationLevel: 5}),
-            imageminSvgo({
-                plugins: [
-                    {removeViewBox: false},
-                    {cleanupIDs: false}
-                ]
-            })
-        ]))
-        .pipe(gulp.dest('./dist/img'));
-});
-
 gulp.task('js', () => {
     gulp.src('src/js/**/*.*')
+        .pipe(sourcemaps.init())
         .pipe(concat('all.js'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/js'));
 });
 
@@ -94,7 +69,6 @@ gulp.task('watch', () => {
     gulp.watch('src/js/**/*.*', ['js']);
 });
 
-
-gulp.task('default', ['stylesMinify', 'html', 'img', 'js', 'watch', 'browserSync']);
-gulp.task('prod', ['stylesMinify', 'html', 'imgMinify', 'js']);
+gulp.task('default', ['styles', 'html', 'img', 'js', 'watch', 'browserSync']);
+gulp.task('prod', ['styles', 'html', 'img', 'js']);
 

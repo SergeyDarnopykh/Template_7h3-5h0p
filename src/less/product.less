@@ -8,76 +8,76 @@
     @media @tablet {
         .flexRow;
     }
+}
 
-    &__img {
-        align-self: flex-start;
-        margin-right: @pagePaddingRL / 1.5;
-        width: 100%;
+.product-img {
+    align-self: flex-start;
+    margin-right: @pagePaddingRL / 1.5;
+    width: 100%;
 
-        @media @tablet {
-            width: 50%;
-        }
+    @media @tablet {
+        width: 50%;
+    }
+}
+
+.product-info {
+    align-self: flex-start;
+
+    @media @phone-strict {
+        .flexColumn;
+    }
+}
+
+.product-name {
+    margin: @pagePaddingRL 0  @itemMargin - 1 0;
+    font-size: 25px;
+    .activeStyle;
+
+    @media @tablet {
+        margin-top: 0;
+        margin-bottom: @itemMargin;
+        font-size: 30px;
     }
 
-    &__info {
-        align-self: flex-start;
-
-        @media @phone-strict {
-            .flexColumn;
-        }
-    }
-
-    &__name {
-        margin: @pagePaddingRL 0  @itemMargin - 1 0;
-        font-size: 25px;
-        .activeStyle;
-
-        @media @tablet {
-            margin-top: 0;
-            margin-bottom: @itemMargin;
-            font-size: 30px;
-        }
-
-        @media @desktop {
-            margin-bottom: @itemMargin / 2;
-            font-size: 40px;
-        }
-    }
-
-    &__manufacture {
-        font-size: 16px;
-        margin-bottom: @itemMargin + 2;
-        line-height: 1.3;
-
-        @media @tablet {
-            margin-bottom: @itemMargin / 2;
-            line-height: 1.2;
-            font-size: 18px;
-        }
-
-        @media @desktop {
-            margin-bottom: @itemMargin / 1.3;
-        }
-    }
-
-    &__cost {
-        @media @phone-strict {
-            margin: @itemMargin / 1.3 auto;
-        }
-        color: @darkRed;
-        font-weight: bold;
+    @media @desktop {
+        margin-bottom: @itemMargin / 2;
         font-size: 40px;
+    }
+}
+
+.product-manufacture {
+    font-size: 16px;
+    margin-bottom: @itemMargin + 2;
+    line-height: 1.3;
+
+    @media @tablet {
+        margin-bottom: @itemMargin / 2;
+        line-height: 1.2;
+        font-size: 18px;
+    }
+
+    @media @desktop {
         margin-bottom: @itemMargin / 1.3;
     }
+}
 
-    &__size-color {
-        font-size: 18px;
-        font-family: @fontRoboto;
+.product-cost {
+    @media @phone-strict {
+        margin: @itemMargin / 1.3 auto;
+    }
+    color: @darkRed;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: @itemMargin / 1.3;
+}
 
-        @media @phone-strict {
-            .flexRow;
-            justify-content: space-around;
-        }
+.product-properties {
+    font-size: 18px;
+    font-family: @fontRoboto;
+
+    @media @phone-strict {
+        .flexRow;
+        justify-content: space-around;
     }
 }
 
