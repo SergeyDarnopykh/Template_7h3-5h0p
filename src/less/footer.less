@@ -4,12 +4,12 @@
 
 .footer {
     background: @backGroundColor;
-    padding: (@pagePaddingRL + 1) / 2 @pagePaddingRL;
+    padding: 0 @pagePaddingRL;
     font-family: @fontRoboto;
 
     &__top {
         .flexColumn;
-        padding-bottom: @pagePaddingRL - 2;
+        padding: 4% 0 @pagePaddingRL - 2 0;
         border-bottom: @border;
 
         @media @tablet {
@@ -19,13 +19,12 @@
     }
 
     &__bottom {
-        padding: @pagePaddingRL 0;
-
         .flexColumn;
+        padding: @pagePaddingRL 0 10% 0;
 
         @media @tablet {
             .flexRow;
-            padding: @pagePaddingRL / 3.5 0
+            padding: @pagePaddingRL / 3.5 0 5.65% 0;
         }
     }
 }
@@ -49,10 +48,9 @@
 }
 
 .continuous-integration {
+    .flexRow;
     margin-left: auto;
     align-self: center;
-
-    .flexRow;
 
     @media @phone-strict {
         padding-top: @pagePaddingRL;
