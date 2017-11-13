@@ -1,14 +1,14 @@
 @import 'decor';
 
 .breadcrumbs {
-    padding: 3% @pagePaddingRL 1.5% @pagePaddingRL;
+    padding: @pagePaddingRL @pagePaddingRL @pagePaddingRL - 1 @pagePaddingRL;
 
-    @media @phone-strict {
-        padding: @pagePaddingRL @pagePaddingRL @pagePaddingRL - 1 @pagePaddingRL;
+    @media @tablet {
+        padding: 3% @pagePaddingRL 1.5% @pagePaddingRL;
     }
 
-    @media @tablet-strict {
-        padding-bottom: 2%;
+    @media @desktop {
+        padding-bottom: 1.5%;
     }
 
     &__list {
