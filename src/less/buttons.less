@@ -10,8 +10,18 @@
     @media @desktop {
         margin-bottom: @itemMargin / 1.3;
     }
+}
 
-    &_button {
+.product-properties-button {
+    &_input {
+        display: none;
+
+        &:checked + label {
+            border: 2px solid @darkRed;
+        }
+    }
+
+    &_label {
         .button;
         .shaded;
         .flexRow;
@@ -19,10 +29,6 @@
         box-sizing: border-box;
         background-color: white;
         margin-right: 4px;
-
-        &:last-child {
-            margin-right: 0;
-        }
 
         @media @tablet {
             margin-right: 6px;
@@ -44,14 +50,6 @@
 
     &_green {
         background-color: #a5af96;
-    }
-
-    &_input {
-        display: none;
-
-        &:checked + label {
-            border: 2px solid @darkRed;
-        }
     }
 }
 

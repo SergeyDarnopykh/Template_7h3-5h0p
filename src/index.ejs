@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body class="page">
+<body id="page" class="page">
 
 <header id="header" class="header">
     <div id="headerTop" class="header__top">
@@ -89,7 +89,7 @@
                 <div id="productSize" class="size product-properties_size">
                     <span class="size__title">Размер:</span>
 
-                    <div class="product-properties-buttons">
+                    <ul id="sizeList" class="product-properties-buttons">
                         <% const sizeButtonsItems = [
                             {size: 'small', title: 'S'},
                             {size: 'medium', title: 'M'},
@@ -97,45 +97,50 @@
                         ]; %>
 
                         <% sizeButtonsItems.forEach( item => { %>
-                            <input id="<%= item.size %>Button" class="product-properties-buttons_input"
-                                   type="radio" name="size"
-                                   data-type="size"
-                                   data-type-value="<%= item.size %>"
-                                   value="<%= item.size %>"
-                                    <%= item.size === 'medium' ? 'checked' : '' %> >
+                            <li class="product-property-button">
+                                <input id="<%= item.size %>Input" class="product-properties-button_input"
+                                       type="radio" name="size"
+                                       data-type="size"
+                                       data-value="<%= item.size %>"
+                                       value="<%= item.size %>"
+                                        <%= item.size === 'medium' ? 'checked' : '' %> >
 
-                            <label for="<%= item.size %>Button"
-                                   class="product-properties-buttons_button
-                                   product-properties-buttons_<%= item.size %>" >
-                                <%= item.title %>
-                             </label>
+                                <label for="<%= item.size %>Input"
+                                       class="product-properties-button_label
+                                       product-properties-button_<%= item.size %>" >
+                                    <%= item.title %>
+                                 </label>
+                            </li>
                         <% }); %>
-                    </div>
+                    </ul>
                 </div>
                 <div id="productColor" class="color product-properties_color">
                     <span class="color__title">Цвет:</span>
-                    <div class="product-properties-buttons">
+                    <ul id="colorList" class="product-properties-buttons">
                         <% const colorButtonsItems = [
                             {color: 'white'},
                             {color: 'yellow'},
                             {color: 'green'}
                         ]; %>
 
-                        <% colorButtonsItems.forEach( item => { %>
-                            <input id="<%= item.color %>Button" class="product-properties-buttons_input"
-                                   type="radio" name="color"
-                                   data-type="color"
-                                   data-type-value="<%= item.color %>"
-                                   value="<%= item.color %>"
-                                    <%= item.color === 'white' ? 'checked' : '' %>>
 
-                            <label for="<%= item.color %>Button"
-                                   class="product-properties-buttons_button
-                                   product-properties-buttons_<%= item.color %>" >
-                                <%= item.title %>
-                            </label>
+                        <% colorButtonsItems.forEach( item => { %>
+                            <li class="product-property-button">
+                                <input id="<%= item.color %>Input" class="product-properties-button_input"
+                                       type="radio" name="color"
+                                       data-type="color"
+                                       data-value="<%= item.color %>"
+                                       value="<%= item.color %>"
+                                        <%= item.color === 'white' ? 'checked' : '' %>>
+
+                                <label for="<%= item.color %>Input"
+                                       class="product-properties-button_label
+                                       product-properties-button_<%= item.color %>" >
+                                    <%= item.title %>
+                                </label>
+                            </li>
                         <% }); %>
-                    </div>
+                    </ul>
                 </div>
             </div>
 
@@ -281,6 +286,6 @@
     </div>
 </footer>
 
-<script src="js/all.js"></script>
+<script type="module" src="js/all.js"></script>
 </body>
 </html>

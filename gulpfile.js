@@ -48,9 +48,8 @@ gulp.task('svg', () => {
 });
 
 gulp.task('js', () => {
-    gulp.src('src/js/**/*.*')
+    gulp.src(['src/js/**/*.*'])
         .pipe(sourcemaps.init())
-        .pipe(concat('all.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/js'));
 });
