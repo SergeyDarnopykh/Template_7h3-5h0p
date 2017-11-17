@@ -1,8 +1,14 @@
 const dispatcher = document.querySelector('#page');
 
 export default class PropertySelector {
-    constructor(el) {
+    constructor(el, type, defaultValue) {
         this.el = el;
+        this.storedValue = localStorage.getItem(type);
+
+        window.addEventListener('load', () => {
+            this.dispatchEvent(type, this.storedValue || defaultValue);
+            this.check('#' + (this.storedValue || defaultValue));
+        });
 
         this.el.addEventListener('click', ev => {
             const type = ev.target.dataset['type'];
@@ -21,5 +27,9 @@ export default class PropertySelector {
         });
 
         dispatcher.dispatchEvent(event);
+    }
+
+    check(selector) {
+        document.querySelector(selector).checked = true;
     }
 }

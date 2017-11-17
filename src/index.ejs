@@ -98,14 +98,13 @@
 
                         <% sizeButtonsItems.forEach( item => { %>
                             <li class="product-property-button">
-                                <input id="<%= item.size %>Input" class="product-properties-button_input"
+                                <input id="<%= item.size %>" class="product-properties-button_input"
                                        type="radio" name="size"
                                        data-type="size"
                                        data-value="<%= item.size %>"
-                                       value="<%= item.size %>"
-                                        <%= item.size === 'medium' ? 'checked' : '' %> >
+                                       value="<%= item.size %>">
 
-                                <label for="<%= item.size %>Input"
+                                <label for="<%= item.size %>"
                                        class="product-properties-button_label
                                        product-properties-button_<%= item.size %>" >
                                     <%= item.title %>
@@ -126,14 +125,13 @@
 
                         <% colorButtonsItems.forEach( item => { %>
                             <li class="product-property-button">
-                                <input id="<%= item.color %>Input" class="product-properties-button_input"
+                                <input id="<%= item.color %>" class="product-properties-button_input"
                                        type="radio" name="color"
                                        data-type="color"
                                        data-value="<%= item.color %>"
-                                       value="<%= item.color %>"
-                                        <%= item.color === 'white' ? 'checked' : '' %>>
+                                       value="<%= item.color %>">
 
-                                <label for="<%= item.color %>Input"
+                                <label for="<%= item.color %>"
                                        class="product-properties-button_label
                                        product-properties-button_<%= item.color %>" >
                                     <%= item.title %>
