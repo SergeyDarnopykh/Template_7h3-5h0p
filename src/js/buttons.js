@@ -1,11 +1,19 @@
-const productProperties = document.querySelector('#productProperties');
+import PropertySelector from './property-selector.js';
 
-productProperties.addEventListener('click', (event) => {
-    const el = event.target,
-        productImg = document.querySelector('#productImg');
+const dispatcher = document.querySelector('#page');
 
-    if (el.dataset.type === 'color') {
-        productImg.src = 'img/tshirt_' + el.dataset.typeValue + '.jpg';
+new PropertySelector(document.querySelector('#colorList'));
+new PropertySelector(document.querySelector('#sizeList'));
+
+function changePicture(color) {
+    document.querySelector('#productImg').src = 'img/tshirt_' + color + '.jpg';
+}
+
+dispatcher.addEventListener('property-selected', (event) => {
+    const data = event.detail;
+
+    if (data.type === 'color') {
+        changePicture(data.value);
     }
 } );
 

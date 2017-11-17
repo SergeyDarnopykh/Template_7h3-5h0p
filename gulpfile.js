@@ -48,10 +48,13 @@ gulp.task('svg', () => {
 });
 
 gulp.task('js', () => {
-    gulp.src('src/js/**/*.*')
+    gulp.src(['src/js/**/*.*', '!src/js/property-selector.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('all.js'))
         .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/js'));
+
+    gulp.src('src/js/property-selector.js')
         .pipe(gulp.dest('./dist/js'));
 });
 
