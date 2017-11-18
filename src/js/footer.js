@@ -3,8 +3,6 @@ const serviceSupport = document.querySelector('#serviceSupport'),
     about = document.querySelector('#about'),
     aboutTitle = document.querySelector('#aboutTitle');
 
-let isPhone = window.innerWidth < 768;
-
 function hide(elem) {
     elem.className += ' hidden';
 }
@@ -22,9 +20,7 @@ function changeVisibility(elem) {
 }
 
 const changeFooterElements = function() {
-    isPhone = window.innerWidth < 768;
-
-    if (isPhone) {
+    if (window.innerWidth < 768) {
         hide(about);
         hide(serviceSupport);
 

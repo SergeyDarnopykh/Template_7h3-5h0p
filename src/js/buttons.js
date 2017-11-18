@@ -7,7 +7,7 @@ new PropertySelector(document.querySelector('#colorList'), 'color', 'white');
 new PropertySelector(document.querySelector('#sizeList'), 'size', 'medium');
 
 function changePicture(color) {
-    document.querySelector('#productImg').src = 'img/tshirt_' + color + '.jpg';
+    document.querySelector('#productImg').src = `img/tshirt_${color}.jpg`;
 }
 
 dispatcher.addEventListener('property-selected', (event) => {
