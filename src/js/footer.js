@@ -12,9 +12,7 @@ function changeVisibility(elem) {
 }
 
 const changeFooterElements = function() {
-    const isPhone = $(window).width() < 768;
-
-    if (isPhone) {
+    if ($(window).width() < 768) {
         $about.hide();
         $serviceSupport.hide();
 
