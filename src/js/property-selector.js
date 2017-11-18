@@ -1,35 +1,31 @@
-const dispatcher = document.querySelector('#page');
+const $dispatcher = $('#page');
 
 export default class PropertySelector {
     constructor(el, type, defaultValue) {
         this.el = el;
         this.storedValue = localStorage.getItem(type);
 
-        window.addEventListener('load', () => {
-            this.dispatchEvent(type, this.storedValue || defaultValue);
+        $(window).on('load', () => {
+            this.triggerEvent(type, this.storedValue || defaultValue);
             this.check('#' + (this.storedValue || defaultValue));
         });
 
-        this.el.addEventListener('click', ev => {
+        this.el.on('click', (ev) => {
             const type = ev.target.dataset['type'];
             const value = ev.target.dataset['value'];
 
-            this.dispatchEvent(type, value);
+            this.triggerEvent(type, value);
         });
     }
 
-    dispatchEvent(type, value) {
-        const event = new CustomEvent('property-selected', {
-            detail: {
-                type: type,
-                value: value
-            }
+    triggerEvent(type, value) {
+        $dispatcher.triggerHandler('property-selected', {
+            type: type,
+            value: value
         });
-
-        dispatcher.dispatchEvent(event);
     }
 
     check(selector) {
-        document.querySelector(selector).checked = true;
+        $(selector).prop( 'checked', true );
     }
 }

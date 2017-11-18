@@ -1,35 +1,30 @@
-const shop = document.querySelector('#shop'),
-    shopLogo = shop.querySelector('#shopLogo'),
-    shopLink = shop.querySelector('#shopLink'),
-    shopPhoneNumber = shop.querySelector('#shopPhoneNumber'),
-    search = document.querySelector('#search'),
-    content = document.querySelector('#content'),
-    breadcrumbs = document.querySelector('#breadcrumbs'),
-    nav = document.querySelector('#navigation');
+const $shop = $('#shop'),
+    $shopLogo = $('#shopLogo'),
+    $shopLink = $('#shopLink'),
+    $shopPhoneNumber = $('#shopPhoneNumber'),
+    $search = $('#search'),
+    $breadcrumbs = $('#breadcrumbs'),
+    $nav = $('#navigation');
 
 const changeHeaderElements = function(event) {
-    if (window.innerWidth < 768) {
-        shopPhoneNumber.remove();
-        search.remove();
-        content.insertBefore(search, breadcrumbs);
+    function detachElements() {
+        $search.detach();
+        $shopPhoneNumber.detach();
+        $shopLogo.detach();
+    }
 
-        shopLogo.remove();
-        shop.insertBefore(shopLogo, shopLink);
+    if ($(window).width() < 768) {
+        detachElements();
+        $breadcrumbs.before($search);
+        $shopLink.before($shopLogo);
     } else if (event.type === 'resize') {
-        shopPhoneNumber.remove();
-        shopLogo.remove();
-        search.remove();
-
-        shop.appendChild(shopLogo);
-        shop.appendChild(shopPhoneNumber);
-        nav.appendChild(search);
+        detachElements();
+        $shop.append($shopLogo);
+        $shop.append($shopPhoneNumber);
+        $nav.append($search);
     }
 };
 
-window.addEventListener('load', event => {
-    changeHeaderElements(event);
-});
-
-window.addEventListener('resize', event => {
+$(window).on('load resize', event => {
     changeHeaderElements(event);
 });

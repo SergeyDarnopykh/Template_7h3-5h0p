@@ -260,7 +260,7 @@
             <% socialMediaItems.forEach( item => { %>
                 <a href="<%= item.link %>" class="social-media__link">
                     <img id="<%= item.title%>"
-                         class="social-media__<%= item.title + (item.title === 'phone' ? ' hidden' : '') %>"
+                         class="social-media__<%= item.title %>"
                          src="<%= item.icon %>"
                          alt="<%= item.title %>">
                 </a>
@@ -284,6 +284,7 @@
     </div>
 </footer>
 
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="module" src="js/all.js"></script>
 </body>
 </html>

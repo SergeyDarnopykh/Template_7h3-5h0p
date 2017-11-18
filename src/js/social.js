@@ -1,17 +1,13 @@
-const phone = document.querySelector('#phone');
+const $phone = $('#phone');
 
 const changeSocial = function(event) {
-    if (window.innerWidth < 768) {
-        phone.classList.remove('hidden');
+    if ($(window).width() < 768) {
+        $phone.show();
     } else if (event.type === 'resize') {
-        phone.classList += ' hidden';
+        $phone.hide();
     }
 };
 
-window.addEventListener('load', event => {
-    changeSocial(event);
-});
-
-window.addEventListener('resize', event => {
+$(window).on('load resize', event => {
     changeSocial(event);
 });

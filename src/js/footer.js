@@ -1,53 +1,39 @@
-const serviceSupport = document.querySelector('#serviceSupport'),
-    serviceSupportTitle = document.querySelector('#serviceSupportTitle'),
-    about = document.querySelector('#about'),
-    aboutTitle = document.querySelector('#aboutTitle');
-
-let isPhone = window.innerWidth < 768;
-
-function hide(elem) {
-    elem.className += ' hidden';
-}
-
-function show(elem) {
-    elem.classList.remove('hidden');
-}
+const $serviceSupport = $('#serviceSupport'),
+    $serviceSupportTitle = $('#serviceSupportTitle'),
+    $about = $('#about'),
+    $aboutTitle = $('#aboutTitle');
 
 function changeVisibility(elem) {
-    if (elem.className.includes('hidden')) {
-        show(elem);
+    if (elem.is(':hidden')) {
+        elem.show();
     } else {
-        hide(elem);
+        elem.hide();
     }
 }
 
 const changeFooterElements = function() {
-    isPhone = window.innerWidth < 768;
+    const isPhone = $(window).width() < 768;
 
     if (isPhone) {
-        hide(about);
-        hide(serviceSupport);
+        $about.hide();
+        $serviceSupport.hide();
 
-        serviceSupportTitle.onclick = () => {
-            changeVisibility(serviceSupport);
-        };
+        $serviceSupportTitle.on('click', () => {
+            changeVisibility($serviceSupport);
+        });
 
-        aboutTitle.onclick = () => {
-            changeVisibility(about);
-        };
+        $aboutTitle.on('click', () => {
+            changeVisibility($about);
+        });
     } else {
-        show(about);
-        show(serviceSupport);
+        $about.show();
+        $serviceSupport.show();
 
-        serviceSupportTitle.onclick = '';
-        aboutTitle.onclick = '';
+        $serviceSupportTitle.off('click');
+        $aboutTitle.off('click');
     }
 };
 
-window.addEventListener('load', () => {
-    changeFooterElements();
-});
-
-window.addEventListener('resize', () => {
+$(window).on('load resize', () => {
     changeFooterElements();
 });

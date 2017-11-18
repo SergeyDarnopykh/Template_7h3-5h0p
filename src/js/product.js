@@ -1,22 +1,17 @@
 const changeProduct = function(event) {
-    const productInfo = document.querySelector('#productInfo'),
-        productProperties = productInfo.querySelector('#productProperties'),
-        productCost = productInfo.querySelector('#productCost'),
-        productBuy = productInfo.querySelector('#productBuy');
+    const $productProperties = $('#productProperties'),
+        $productCost = $('#productCost'),
+        $productBuy = $('#productBuy');
 
-    if (window.innerWidth < 768) {
-        productCost.remove();
-        productInfo.insertBefore(productCost, productBuy);
+    if ($(window).width() < 768) {
+        $productCost.detach();
+        $productBuy.before($productCost);
     } else if (event.type === 'resize') {
-        productCost.remove();
-        productInfo.insertBefore(productCost, productProperties);
+        $productCost.detach();
+        $productProperties.before($productCost);
     }
 };
 
-window.addEventListener('load', event => {
-    changeProduct(event);
-});
-
-window.addEventListener('resize', event => {
+$(window).on('load resize', (event) => {
     changeProduct(event);
 });

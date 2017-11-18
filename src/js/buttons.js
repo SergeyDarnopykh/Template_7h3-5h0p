@@ -1,18 +1,15 @@
 import PropertySelector from './property-selector.js';
 
-const dispatcher = document.querySelector('#page');
+const $dispatcher = $('#page');
 
-
-new PropertySelector(document.querySelector('#colorList'), 'color', 'white');
-new PropertySelector(document.querySelector('#sizeList'), 'size', 'medium');
+new PropertySelector($('#colorList'), 'color', 'white');
+new PropertySelector($('#sizeList'), 'size', 'medium');
 
 function changePicture(color) {
-    document.querySelector('#productImg').src = 'img/tshirt_' + color + '.jpg';
+    $('#productImg').attr('src', `img/tshirt_${color}.jpg`);
 }
 
-dispatcher.addEventListener('property-selected', (event) => {
-    const data = event.detail;
-
+$dispatcher.on('property-selected', (event, data) => {
     if (data.type === 'color') {
         localStorage.setItem(data.type, data.value);
         changePicture(data.value);
