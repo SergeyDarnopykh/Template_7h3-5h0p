@@ -19,8 +19,8 @@ const changeHeaderElements = function(event) {
         $shopLink.before($shopLogo);
     } else if (event.type === 'resize') {
         detachElements();
-        $shop.append($shopLogo);
-        $shop.append($shopPhoneNumber);
+        $shop.append($shopLogo)
+            .append($shopPhoneNumber);
         $nav.append($search);
     }
 };
